@@ -38,7 +38,7 @@ export function HeroSection() {
           <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1550547660-d9450f859349?w=1920&q=80')" }} />
         </video>
         {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/80 via-charcoal/70 to-charcoal/90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/80 via-charcoal/20 to-charcoal/80" />
       </div>
 
       {/* Content */}
@@ -64,8 +64,9 @@ export function HeroSection() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
             <Button
               size="lg"
+              variant="outline"
               onClick={scrollToMenu}
-              className="bg-ember hover:bg-rust text-charcoal font-bold text-lg px-8 py-6 uppercase tracking-wide transition-all duration-300 hover:scale-105"
+              className="text-smoke hover:bg-smoke hover:text-flame font-bold text-lg px-8 py-6 uppercase tracking-wide transition-all duration-300"
             >
               {t("cta")}
             </Button>
@@ -73,7 +74,7 @@ export function HeroSection() {
               size="lg"
               variant="outline"
               onClick={scrollToReservations}
-              className="border-smoke text-smoke hover:bg-smoke hover:text-charcoal font-bold text-lg px-8 py-6 uppercase tracking-wide transition-all duration-300"
+              className=" text-smoke hover:bg-smoke hover:text-flame font-bold text-lg px-8 py-6 uppercase tracking-wide transition-all duration-300"
             >
               {t("ctaSecondary")}
             </Button>

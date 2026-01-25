@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
@@ -25,6 +25,22 @@ export function Navbar({ onConfigOpen }: NavbarProps) {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { getEnabledSections } = useSectionConfig();
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Show navbar when scrolled past the hero section (viewport height)
+      // Using a slightly smaller value (0.9) to make it appear just before the next section
+      const showThreshold = window.innerHeight * 0.9;
+      setIsScrolled(window.scrollY > showThreshold);
+    };
+
+    // Initial check
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const enabledSections = getEnabledSections();
 
@@ -42,7 +58,12 @@ export function Navbar({ onConfigOpen }: NavbarProps) {
   const localePathname = pathname.replace(`/${locale}`, `/${otherLocale}`);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-charcoal/95 backdrop-blur-sm border-b border-gunmetal">
+    <header
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 bg-charcoal/95 backdrop-blur-sm border-b border-gunmetal transition-transform duration-300 ease-in-out",
+        isScrolled ? "translate-y-0" : "-translate-y-full"
+      )}
+    >
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link
@@ -50,7 +71,7 @@ export function Navbar({ onConfigOpen }: NavbarProps) {
           className="flex items-center gap-2 text-smoke hover:text-ember transition-colors"
         >
           <Flame className="h-8 w-8 text-ember" />
-          <span className="font-bold text-xl tracking-tight">FORGE BURGER</span>
+          <span className="font-bold text-xl tracking-wider">Forja</span>
         </Link>
 
         {/* Desktop Navigation */}
