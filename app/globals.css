@@ -8,50 +8,50 @@
   /* Base colors */
   --background: #1a1a1a;
   --foreground: #e5e5e5;
-  
+
   /* Card/Surface colors */
   --card: #2d2d2d;
   --card-foreground: #e5e5e5;
-  
+
   /* Popover colors */
   --popover: #2d2d2d;
   --popover-foreground: #e5e5e5;
-  
+
   /* Primary - Ember Orange */
   --primary: #d97706;
   --primary-foreground: #1a1a1a;
-  
+
   /* Secondary - Steel */
   --secondary: #4a4a4a;
   --secondary-foreground: #e5e5e5;
-  
+
   /* Muted elements */
   --muted: #3a3a3a;
   --muted-foreground: #9ca3af;
-  
+
   /* Accent - Flame */
   --accent: #f59e0b;
   --accent-foreground: #1a1a1a;
-  
+
   /* Destructive */
   --destructive: #dc2626;
   --destructive-foreground: #e5e5e5;
-  
+
   /* Border and input */
   --border: #4a4a4a;
   --input: #3a3a3a;
   --ring: #d97706;
-  
+
   /* Chart colors */
   --chart-1: #d97706;
   --chart-2: #f59e0b;
   --chart-3: #b45309;
   --chart-4: #92400e;
   --chart-5: #78350f;
-  
+
   /* Radius */
   --radius: 0.5rem;
-  
+
   /* Industrial palette custom vars */
   --charcoal: #1a1a1a;
   --steel: #2d2d2d;
@@ -62,6 +62,8 @@
   --ember: #d97706;
   --rust: #b45309;
   --flame: #f59e0b;
+  --cream: #ffead2;
+  --flame-red: #b4121f;
 }
 
 /* Tailwind v4 theme configuration */
@@ -85,7 +87,7 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  
+
   /* Industrial custom colors */
   --color-charcoal: var(--charcoal);
   --color-steel: var(--steel);
@@ -96,11 +98,15 @@
   --color-ember: var(--ember);
   --color-rust: var(--rust);
   --color-flame: var(--flame);
-  
+  --color-cream: var(--cream);
+  --color-flame-red: var(--flame-red);
+
   /* Font configuration */
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
-  
+  --font-fascinate: var(--font-fascinate), cursive;
+  --font-oi: var(--font-oi), display;
+
   /* Border radius */
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -163,6 +169,7 @@ html {
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -174,6 +181,7 @@ html {
     opacity: 0;
     transform: translateX(100%);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -185,6 +193,7 @@ html {
     opacity: 1;
     transform: translateX(0);
   }
+
   to {
     opacity: 0;
     transform: translateX(100%);

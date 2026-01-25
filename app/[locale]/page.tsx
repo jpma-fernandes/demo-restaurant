@@ -12,9 +12,9 @@ export default function HomePage() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar onConfigOpen={() => setConfigOpen(true)} />
-      
+
       <SectionRenderer />
-      
+
       <Footer />
 
       <ConfigPanel open={configOpen} onOpenChange={setConfigOpen} />

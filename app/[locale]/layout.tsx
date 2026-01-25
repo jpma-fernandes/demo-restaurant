@@ -2,7 +2,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Fascinate, Oi } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
 import { SectionConfigProvider } from "@/context/section-config-context";
 import "../globals.css";
@@ -14,6 +14,18 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const fascinate = Fascinate({
+  variable: "--font-fascinate",
+  weight: "400",
+  subsets: ["latin"],
+});
+
+const oi = Oi({
+  variable: "--font-oi",
+  weight: "400",
   subsets: ["latin"],
 });
 
@@ -41,12 +53,12 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-charcoal`}
+        className={`${geistSans.variable} ${geistMono.variable} ${fascinate.variable} ${oi.variable} antialiased bg-charcoal`}
       >
         <NextIntlClientProvider messages={messages}>
           <SectionConfigProvider>
             {children}
-            <Toaster 
+            <Toaster
               position="top-right"
               toastOptions={{
                 style: {

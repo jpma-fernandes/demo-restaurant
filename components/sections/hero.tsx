@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
@@ -24,15 +23,20 @@ export function HeroSection() {
 
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
+      {/* Background Video */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=1920&q=80"
-          alt="Artisan burger"
-          fill
-          className="object-cover"
-          priority
-        />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+          poster="https://images.unsplash.com/photo-1550547660-d9450f859349?w=1920&q=80"
+        >
+          {/* Local video file */}
+          <source src="/HeroVideo.mp4" type="video/mp4" />
+          <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1550547660-d9450f859349?w=1920&q=80')" }} />
+        </video>
         {/* Dark Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-charcoal/80 via-charcoal/70 to-charcoal/90" />
       </div>
@@ -42,27 +46,19 @@ export function HeroSection() {
         <div className="max-w-4xl mx-auto space-y-6">
           {/* Decorative line */}
           <div className="flex items-center justify-center gap-4 mb-8">
-            <div className="h-px w-12 bg-ember" />
-            <span className="text-ember text-sm uppercase tracking-[0.3em] font-medium">
+            <div className="h-px w-12 bg-white" />
+            <span className="text-sm uppercase tracking-[0.3em] font-medium">
               Est. 2019
             </span>
-            <div className="h-px w-12 bg-ember" />
+            <div className="h-px w-12 bg-white" />
           </div>
 
           {/* Main Title */}
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-smoke tracking-tight">
-            {t("title")}
+          <h1 className="text-[130px] md:text-[160px] lg:text-[200px] font-fascinate text-smoke tracking-tight">
+            Forja
           </h1>
 
-          {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-ember font-medium tracking-wide">
-            {t("subtitle")}
-          </p>
 
-          {/* Description */}
-          <p className="text-iron text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-            {t("description")}
-          </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">

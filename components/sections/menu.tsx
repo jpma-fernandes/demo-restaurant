@@ -105,7 +105,7 @@ export function MenuSection() {
   };
 
   return (
-    <div className="bg-steel py-20 lg:py-32">
+    <div className="bg-cream py-20 lg:py-32">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
@@ -116,10 +116,9 @@ export function MenuSection() {
             </span>
             <div className="h-px w-12 bg-ember" />
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-smoke mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-flame-red mb-4">
             {t("title")}
           </h2>
-          <p className="text-iron text-lg">{t("description")}</p>
         </div>
 
         {/* Category Navbar + View Toggle */}

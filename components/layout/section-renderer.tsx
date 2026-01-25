@@ -35,7 +35,7 @@ export function SectionRenderer() {
           <section
             key={section.id}
             id={section.id}
-            className="section-enter"
+            className={section.id === "hero" ? "" : "section-enter"}
           >
             <Component />
           </section>
