@@ -1,0 +1,298 @@
+{
+  "common": {
+    "reserve": "Reservar Mesa",
+    "contact": "Contacto",
+    "menu": "Menu",
+    "about": "Sobre Nós",
+    "events": "Eventos",
+    "testimonials": "Testemunhos",
+    "reservations": "Reservas",
+    "hero": "Início",
+    "home": "Início",
+    "learnMore": "Saber Mais",
+    "viewAll": "Ver Todos",
+    "send": "Enviar",
+    "submit": "Submeter",
+    "required": "Obrigatório",
+    "optional": "Opcional",
+    "success": "Sucesso",
+    "error": "Erro",
+    "loading": "A carregar...",
+    "close": "Fechar"
+  },
+  "config": {
+    "title": "Configuração de Secções",
+    "description": "Arraste para reordenar e use os interruptores para ativar ou desativar secções.",
+    "reset": "Repor Predefinições",
+    "resetConfirm": "Tem a certeza que deseja repor as predefinições?",
+    "dragHandle": "Arrastar para reordenar",
+    "enabled": "Ativado",
+    "disabled": "Desativado"
+  },
+  "nav": {
+    "openMenu": "Abrir menu",
+    "closeMenu": "Fechar menu",
+    "configPanel": "Painel de Configuração",
+    "language": "Idioma"
+  },
+  "hero": {
+    "title": "Hambúrgueres Artesanais",
+    "subtitle": "Forjados com paixão, servidos com perfeição",
+    "description": "Ingredientes premium, receitas autênticas e um ambiente industrial único. Bem-vindo à experiência gastronómica que vai transformar a sua forma de ver hambúrgueres.",
+    "cta": "Ver Menu",
+    "ctaSecondary": "Reservar Mesa"
+  },
+  "menu": {
+    "title": "O Nosso Menu",
+    "subtitle": "Sabores forjados na perfeição",
+    "description": "Cada hambúrguer é uma obra de arte culinária, preparado com ingredientes selecionados e técnicas artesanais.",
+    "price": "Preço",
+    "categories": {
+      "burgers": "Hambúrgueres",
+      "drinks": "Bebidas",
+      "sides": "Acompanhamentos",
+      "milkshakes": "Batidos"
+    },
+    "viewMode": {
+      "picture": "Modo Imagem",
+      "minimalist": "Modo Menu"
+    },
+    "items": {
+      "classic": {
+        "name": "O Clássico Forjado",
+        "description": "Carne Angus 180g, queijo cheddar maturado, alface crocante, tomate fresco e molho especial da casa."
+      },
+      "smoky": {
+        "name": "Fumado Industrial",
+        "description": "Carne de costela fumada 200g, bacon crocante, queijo gouda defumado, cebola caramelizada e molho barbecue artesanal."
+      },
+      "truffle": {
+        "name": "Trufa Negra",
+        "description": "Blend premium 220g, cogumelos salteados, queijo brie, rúcula fresca e maionese de trufa negra."
+      },
+      "inferno": {
+        "name": "Inferno Picante",
+        "description": "Carne Angus 180g, jalapeños, pimento ghost pepper, queijo pepper jack e molho sriracha da casa."
+      },
+      "veggie": {
+        "name": "Jardim Urbano",
+        "description": "Hambúrguer de grão-de-bico e beterraba, queijo de cabra, rúcula, tomate seco e pesto de manjericão."
+      },
+      "bacon": {
+        "name": "Bacon Supremo",
+        "description": "Carne Angus 200g, camada tripla de bacon, queijo cheddar, ovo estrelado e molho de mostarda e mel."
+      },
+      "cola": {
+        "name": "Cola Artesanal",
+        "description": "Refrigerante de cola artesanal, servido bem gelado com gelo e limão."
+      },
+      "lemonade": {
+        "name": "Limonada Fresca",
+        "description": "Limonada caseira com limões frescos, hortelã e um toque de gengibre."
+      },
+      "craftBeerDrink": {
+        "name": "Cerveja Artesanal",
+        "description": "Seleção rotativa de cervejas artesanais locais, pergunte ao seu servidor."
+      },
+      "sparklingWater": {
+        "name": "Água com Gás",
+        "description": "Água mineral gaseificada premium, servida com limão."
+      },
+      "fries": {
+        "name": "Batatas Fritas",
+        "description": "Batatas fritas crocantes, temperadas com sal marinho e ervas aromáticas."
+      },
+      "onionRings": {
+        "name": "Anéis de Cebola",
+        "description": "Anéis de cebola empanados e fritos até ficarem dourados e crocantes."
+      },
+      "coleslaw": {
+        "name": "Salada Coleslaw",
+        "description": "Couve roxa e cenoura raladas com molho cremoso de maionese caseira."
+      },
+      "nachos": {
+        "name": "Nachos Supremos",
+        "description": "Nachos crocantes com queijo derretido, guacamole, pico de gallo e sour cream."
+      },
+      "chocolateShake": {
+        "name": "Batido de Chocolate",
+        "description": "Batido cremoso de chocolate belga com gelado artesanal e chantilly."
+      },
+      "strawberryShake": {
+        "name": "Batido de Morango",
+        "description": "Batido refrescante de morangos frescos com gelado de baunilha."
+      },
+      "vanillaShake": {
+        "name": "Batido de Baunilha",
+        "description": "Batido clássico de baunilha Madagáscar com gelado premium."
+      },
+      "oreoShake": {
+        "name": "Batido Oreo",
+        "description": "Batido indulgente com bolachas Oreo trituradas e gelado de baunilha."
+      }
+    }
+  },
+  "about": {
+    "title": "Sobre Nós",
+    "subtitle": "Uma paixão forjada em fogo",
+    "description": "Nascemos da vontade de criar algo diferente. Não somos apenas mais um restaurante de hambúrgueres - somos artesãos do sabor, forjando cada receita com a mesma dedicação que um ferreiro dá ao aço.",
+    "story": {
+      "title": "A Nossa História",
+      "content": "Fundado em 2019, o Forge Burger nasceu numa antiga fábrica reconvertida, mantendo a essência industrial que nos define. Cada elemento do nosso espaço conta uma história de transformação e dedicação."
+    },
+    "mission": {
+      "title": "A Nossa Missão",
+      "content": "Elevar o hambúrguer artesanal a uma forma de arte gastronómica, utilizando ingredientes locais e sustentáveis, técnicas tradicionais e um ambiente que transporta os nossos clientes para uma experiência única."
+    },
+    "values": {
+      "title": "Os Nossos Valores",
+      "quality": "Qualidade Premium",
+      "qualityDesc": "Apenas os melhores ingredientes, selecionados diariamente.",
+      "craft": "Artesanal",
+      "craftDesc": "Cada hambúrguer é preparado à mão com técnicas tradicionais.",
+      "sustainable": "Sustentabilidade",
+      "sustainableDesc": "Compromisso com fornecedores locais e práticas eco-responsáveis."
+    }
+  },
+  "events": {
+    "title": "Eventos",
+    "subtitle": "Experiências únicas",
+    "description": "Junte-se a nós para noites temáticas, música ao vivo e eventos especiais que transformam uma refeição numa experiência memorável.",
+    "upcoming": "Próximos Eventos",
+    "past": "Eventos Anteriores",
+    "date": "Data",
+    "time": "Hora",
+    "location": "Local",
+    "items": {
+      "liveMusic": {
+        "name": "Noite de Blues",
+        "description": "Música blues ao vivo com os melhores artistas locais. Ambiente intimista e hambúrgueres especiais.",
+        "date": "Todas as Sextas"
+      },
+      "burgerChallenge": {
+        "name": "Desafio do Monstro",
+        "description": "Consegue comer o hambúrguer de 1kg em 30 minutos? A refeição é por conta da casa!",
+        "date": "Último Sábado do Mês"
+      },
+      "craftBeer": {
+        "name": "Harmonização de Cervejas",
+        "description": "Descubra as melhores combinações de cervejas artesanais com os nossos hambúrgueres premium.",
+        "date": "Quartas-feiras"
+      },
+      "brunch": {
+        "name": "Brunch Dominical",
+        "description": "Menu especial de brunch com hambúrgueres matinais, ovos beneditinos e cocktails sem álcool.",
+        "date": "Domingos 11h-15h"
+      }
+    }
+  },
+  "testimonials": {
+    "title": "Testemunhos",
+    "subtitle": "O que dizem os nossos clientes",
+    "description": "Milhares de clientes satisfeitos já passaram pelas nossas portas. Descubra o que torna a experiência Forge Burger tão especial.",
+    "items": {
+      "review1": {
+        "name": "João Silva",
+        "role": "Food Blogger",
+        "content": "O melhor hambúrguer que já comi em Portugal. O ambiente industrial é fantástico e a carne derrete na boca. Voltarei com certeza!",
+        "rating": 5
+      },
+      "review2": {
+        "name": "Maria Santos",
+        "role": "Chef Profissional",
+        "content": "Como chef, sou muito exigente. O Forge Burger superou todas as minhas expectativas. Qualidade dos ingredientes impecável.",
+        "rating": 5
+      },
+      "review3": {
+        "name": "Pedro Costa",
+        "role": "Cliente Regular",
+        "content": "Venho cá todas as semanas há 2 anos. O pessoal conhece-me pelo nome e o meu hambúrguer favorito está sempre perfeito.",
+        "rating": 5
+      },
+      "review4": {
+        "name": "Ana Ferreira",
+        "role": "Influencer Gastronómica",
+        "content": "O Trufa Negra é absolutamente divinal. A combinação de sabores é única e a apresentação é digna de estrelas Michelin.",
+        "rating": 5
+      }
+    }
+  },
+  "reservations": {
+    "title": "Reserve a Sua Mesa",
+    "subtitle": "Garanta o seu lugar",
+    "description": "Para uma experiência sem esperas, faça a sua reserva online. Mesas disponíveis para grupos de 1 a 10 pessoas.",
+    "date": "Data",
+    "time": "Hora",
+    "guests": "Nº de Pessoas",
+    "guestsSuffix": "pessoa(s)",
+    "name": "Nome",
+    "email": "Email",
+    "phone": "Telefone",
+    "specialRequests": "Pedidos Especiais",
+    "specialRequestsPlaceholder": "Alergias, ocasiões especiais, preferências de mesa...",
+    "submit": "Confirmar Reserva",
+    "success": "Reserva confirmada! Enviámos um email de confirmação.",
+    "timeSlots": {
+      "lunch": "Almoço",
+      "dinner": "Jantar"
+    },
+    "errors": {
+      "required": "Este campo é obrigatório",
+      "invalidEmail": "Por favor introduza um email válido",
+      "invalidPhone": "Por favor introduza um número de telefone válido",
+      "pastDate": "Por favor selecione uma data futura",
+      "generic": "Ocorreu um erro. Por favor tente novamente."
+    }
+  },
+  "contact": {
+    "title": "Contacte-nos",
+    "subtitle": "Estamos aqui para si",
+    "description": "Tem alguma questão, sugestão ou feedback? Envie-nos uma mensagem e responderemos o mais brevemente possível.",
+    "form": {
+      "name": "Nome",
+      "namePlaceholder": "O seu nome",
+      "email": "Email",
+      "emailPlaceholder": "o.seu@email.com",
+      "subject": "Assunto",
+      "subjectPlaceholder": "Assunto da mensagem",
+      "message": "Mensagem",
+      "messagePlaceholder": "Escreva aqui a sua mensagem...",
+      "submit": "Enviar Mensagem",
+      "success": "Mensagem enviada com sucesso! Responderemos em breve.",
+      "errors": {
+        "required": "Este campo é obrigatório",
+        "invalidEmail": "Por favor introduza um email válido",
+        "messageTooShort": "A mensagem deve ter pelo menos 10 caracteres",
+        "generic": "Ocorreu um erro. Por favor tente novamente."
+      }
+    },
+    "info": {
+      "title": "Informações",
+      "address": "Morada",
+      "addressValue": "Rua da Forja Industrial, 42\n4000-123 Porto, Portugal",
+      "phone": "Telefone",
+      "phoneValue": "+351 222 333 444",
+      "email": "Email",
+      "emailValue": "info@forgeburger.pt",
+      "hours": "Horário",
+      "hoursValue": "Ter-Dom: 12h00 - 23h00\nSeg: Encerrado"
+    }
+  },
+  "footer": {
+    "description": "Hambúrgueres artesanais forjados com paixão no coração do Porto.",
+    "navigation": "Navegação",
+    "legal": "Legal",
+    "privacy": "Política de Privacidade",
+    "terms": "Termos e Condições",
+    "cookies": "Política de Cookies",
+    "social": "Redes Sociais",
+    "newsletter": {
+      "title": "Newsletter",
+      "description": "Subscreva para receber novidades e ofertas exclusivas.",
+      "placeholder": "O seu email",
+      "submit": "Subscrever",
+      "success": "Subscrito com sucesso!"
+    },
+    "copyright": "© {year} Forge Burger. Todos os direitos reservados."
+  }
+}

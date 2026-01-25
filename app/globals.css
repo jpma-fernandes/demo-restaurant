@@ -1,26 +1,213 @@
 @import "tailwindcss";
 
+/* ========================================
+   Industrial Burger Restaurant Color Palette
+   ======================================== */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Base colors */
+  --background: #1a1a1a;
+  --foreground: #e5e5e5;
+  
+  /* Card/Surface colors */
+  --card: #2d2d2d;
+  --card-foreground: #e5e5e5;
+  
+  /* Popover colors */
+  --popover: #2d2d2d;
+  --popover-foreground: #e5e5e5;
+  
+  /* Primary - Ember Orange */
+  --primary: #d97706;
+  --primary-foreground: #1a1a1a;
+  
+  /* Secondary - Steel */
+  --secondary: #4a4a4a;
+  --secondary-foreground: #e5e5e5;
+  
+  /* Muted elements */
+  --muted: #3a3a3a;
+  --muted-foreground: #9ca3af;
+  
+  /* Accent - Flame */
+  --accent: #f59e0b;
+  --accent-foreground: #1a1a1a;
+  
+  /* Destructive */
+  --destructive: #dc2626;
+  --destructive-foreground: #e5e5e5;
+  
+  /* Border and input */
+  --border: #4a4a4a;
+  --input: #3a3a3a;
+  --ring: #d97706;
+  
+  /* Chart colors */
+  --chart-1: #d97706;
+  --chart-2: #f59e0b;
+  --chart-3: #b45309;
+  --chart-4: #92400e;
+  --chart-5: #78350f;
+  
+  /* Radius */
+  --radius: 0.5rem;
+  
+  /* Industrial palette custom vars */
+  --charcoal: #1a1a1a;
+  --steel: #2d2d2d;
+  --gunmetal: #4a4a4a;
+  --slate: #6b7280;
+  --iron: #9ca3af;
+  --smoke: #e5e5e5;
+  --ember: #d97706;
+  --rust: #b45309;
+  --flame: #f59e0b;
 }
 
+/* Tailwind v4 theme configuration */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  
+  /* Industrial custom colors */
+  --color-charcoal: var(--charcoal);
+  --color-steel: var(--steel);
+  --color-gunmetal: var(--gunmetal);
+  --color-slate: var(--slate);
+  --color-iron: var(--iron);
+  --color-smoke: var(--smoke);
+  --color-ember: var(--ember);
+  --color-rust: var(--rust);
+  --color-flame: var(--flame);
+  
+  /* Font configuration */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  
+  /* Border radius */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Base styles */
+* {
+  border-color: var(--border);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--charcoal);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gunmetal);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--slate);
+}
+
+/* Selection styling */
+::selection {
+  background: var(--ember);
+  color: var(--charcoal);
+}
+
+/* Focus visible for accessibility */
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animation utilities */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out-right {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.3s ease-out forwards;
+}
+
+.animate-slide-out-right {
+  animation: slide-out-right 0.3s ease-out forwards;
+}
+
+/* Section transition for toggle */
+.section-enter {
+  animation: fade-in 0.4s ease-out forwards;
+}
+
+.section-exit {
+  animation: fade-in 0.3s ease-out reverse forwards;
 }

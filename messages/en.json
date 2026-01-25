@@ -1,0 +1,298 @@
+{
+  "common": {
+    "reserve": "Reserve a Table",
+    "contact": "Contact",
+    "menu": "Menu",
+    "about": "About Us",
+    "events": "Events",
+    "testimonials": "Testimonials",
+    "reservations": "Reservations",
+    "hero": "Home",
+    "home": "Home",
+    "learnMore": "Learn More",
+    "viewAll": "View All",
+    "send": "Send",
+    "submit": "Submit",
+    "required": "Required",
+    "optional": "Optional",
+    "success": "Success",
+    "error": "Error",
+    "loading": "Loading...",
+    "close": "Close"
+  },
+  "config": {
+    "title": "Section Configuration",
+    "description": "Drag to reorder and use the toggles to enable or disable sections.",
+    "reset": "Reset to Defaults",
+    "resetConfirm": "Are you sure you want to reset to defaults?",
+    "dragHandle": "Drag to reorder",
+    "enabled": "Enabled",
+    "disabled": "Disabled"
+  },
+  "nav": {
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "configPanel": "Configuration Panel",
+    "language": "Language"
+  },
+  "hero": {
+    "title": "Artisan Burgers",
+    "subtitle": "Forged with passion, served to perfection",
+    "description": "Premium ingredients, authentic recipes, and a unique industrial atmosphere. Welcome to the culinary experience that will transform the way you see burgers.",
+    "cta": "View Menu",
+    "ctaSecondary": "Reserve a Table"
+  },
+  "menu": {
+    "title": "Our Menu",
+    "subtitle": "Flavors forged to perfection",
+    "description": "Each burger is a culinary work of art, prepared with selected ingredients and artisanal techniques.",
+    "price": "Price",
+    "categories": {
+      "burgers": "Burgers",
+      "drinks": "Drinks",
+      "sides": "Sides",
+      "milkshakes": "Milkshakes"
+    },
+    "viewMode": {
+      "picture": "Picture Mode",
+      "minimalist": "Menu Mode"
+    },
+    "items": {
+      "classic": {
+        "name": "The Forged Classic",
+        "description": "180g Angus beef, aged cheddar cheese, crispy lettuce, fresh tomato, and our special house sauce."
+      },
+      "smoky": {
+        "name": "Industrial Smoked",
+        "description": "200g smoked rib meat, crispy bacon, smoked gouda cheese, caramelized onions, and artisanal BBQ sauce."
+      },
+      "truffle": {
+        "name": "Black Truffle",
+        "description": "220g premium blend, sautéed mushrooms, brie cheese, fresh arugula, and black truffle mayonnaise."
+      },
+      "inferno": {
+        "name": "Spicy Inferno",
+        "description": "180g Angus beef, jalapeños, ghost pepper, pepper jack cheese, and house sriracha sauce."
+      },
+      "veggie": {
+        "name": "Urban Garden",
+        "description": "Chickpea and beetroot burger, goat cheese, arugula, sun-dried tomatoes, and basil pesto."
+      },
+      "bacon": {
+        "name": "Bacon Supreme",
+        "description": "200g Angus beef, triple layer bacon, cheddar cheese, fried egg, and honey mustard sauce."
+      },
+      "cola": {
+        "name": "Artisan Cola",
+        "description": "Handcrafted cola served ice cold with ice and lime."
+      },
+      "lemonade": {
+        "name": "Fresh Lemonade",
+        "description": "Homemade lemonade with fresh lemons, mint, and a touch of ginger."
+      },
+      "craftBeerDrink": {
+        "name": "Craft Beer",
+        "description": "Rotating selection of local craft beers, ask your server for today's pick."
+      },
+      "sparklingWater": {
+        "name": "Sparkling Water",
+        "description": "Premium sparkling mineral water, served with lemon."
+      },
+      "fries": {
+        "name": "Crispy Fries",
+        "description": "Golden crispy fries seasoned with sea salt and aromatic herbs."
+      },
+      "onionRings": {
+        "name": "Onion Rings",
+        "description": "Beer-battered onion rings fried until golden and crispy."
+      },
+      "coleslaw": {
+        "name": "Coleslaw Salad",
+        "description": "Shredded red cabbage and carrots with creamy homemade mayo dressing."
+      },
+      "nachos": {
+        "name": "Supreme Nachos",
+        "description": "Crispy nachos with melted cheese, guacamole, pico de gallo, and sour cream."
+      },
+      "chocolateShake": {
+        "name": "Chocolate Shake",
+        "description": "Creamy Belgian chocolate shake with artisan ice cream and whipped cream."
+      },
+      "strawberryShake": {
+        "name": "Strawberry Shake",
+        "description": "Refreshing fresh strawberry shake with vanilla ice cream."
+      },
+      "vanillaShake": {
+        "name": "Vanilla Shake",
+        "description": "Classic Madagascar vanilla shake with premium ice cream."
+      },
+      "oreoShake": {
+        "name": "Oreo Shake",
+        "description": "Indulgent shake with crushed Oreo cookies and vanilla ice cream."
+      }
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "A passion forged in fire",
+    "description": "We were born from the desire to create something different. We're not just another burger restaurant - we are artisans of flavor, forging each recipe with the same dedication a blacksmith gives to steel.",
+    "story": {
+      "title": "Our Story",
+      "content": "Founded in 2019, Forge Burger was born in a converted old factory, maintaining the industrial essence that defines us. Every element of our space tells a story of transformation and dedication."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "content": "To elevate the artisan burger to a form of culinary art, using local and sustainable ingredients, traditional techniques, and an atmosphere that transports our customers to a unique experience."
+    },
+    "values": {
+      "title": "Our Values",
+      "quality": "Premium Quality",
+      "qualityDesc": "Only the best ingredients, selected daily.",
+      "craft": "Artisanal",
+      "craftDesc": "Each burger is handcrafted using traditional techniques.",
+      "sustainable": "Sustainability",
+      "sustainableDesc": "Commitment to local suppliers and eco-responsible practices."
+    }
+  },
+  "events": {
+    "title": "Events",
+    "subtitle": "Unique experiences",
+    "description": "Join us for themed nights, live music, and special events that turn a meal into a memorable experience.",
+    "upcoming": "Upcoming Events",
+    "past": "Past Events",
+    "date": "Date",
+    "time": "Time",
+    "location": "Location",
+    "items": {
+      "liveMusic": {
+        "name": "Blues Night",
+        "description": "Live blues music with the best local artists. Intimate atmosphere and special burgers.",
+        "date": "Every Friday"
+      },
+      "burgerChallenge": {
+        "name": "Monster Challenge",
+        "description": "Can you eat the 1kg burger in 30 minutes? The meal is on the house!",
+        "date": "Last Saturday of the Month"
+      },
+      "craftBeer": {
+        "name": "Craft Beer Pairing",
+        "description": "Discover the best craft beer combinations with our premium burgers.",
+        "date": "Wednesdays"
+      },
+      "brunch": {
+        "name": "Sunday Brunch",
+        "description": "Special brunch menu with breakfast burgers, eggs benedict, and mocktails.",
+        "date": "Sundays 11am-3pm"
+      }
+    }
+  },
+  "testimonials": {
+    "title": "Testimonials",
+    "subtitle": "What our customers say",
+    "description": "Thousands of satisfied customers have passed through our doors. Discover what makes the Forge Burger experience so special.",
+    "items": {
+      "review1": {
+        "name": "John Smith",
+        "role": "Food Blogger",
+        "content": "The best burger I've ever had in Portugal. The industrial atmosphere is fantastic and the meat melts in your mouth. I'll definitely be back!",
+        "rating": 5
+      },
+      "review2": {
+        "name": "Maria Santos",
+        "role": "Professional Chef",
+        "content": "As a chef, I'm very demanding. Forge Burger exceeded all my expectations. Impeccable ingredient quality.",
+        "rating": 5
+      },
+      "review3": {
+        "name": "Peter Costa",
+        "role": "Regular Customer",
+        "content": "I've been coming here every week for 2 years. The staff knows me by name and my favorite burger is always perfect.",
+        "rating": 5
+      },
+      "review4": {
+        "name": "Anna Ferreira",
+        "role": "Food Influencer",
+        "content": "The Black Truffle is absolutely divine. The flavor combination is unique and the presentation is worthy of Michelin stars.",
+        "rating": 5
+      }
+    }
+  },
+  "reservations": {
+    "title": "Reserve Your Table",
+    "subtitle": "Secure your spot",
+    "description": "For a wait-free experience, make your reservation online. Tables available for groups of 1 to 10 people.",
+    "date": "Date",
+    "time": "Time",
+    "guests": "Party Size",
+    "guestsSuffix": "guest(s)",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "specialRequests": "Special Requests",
+    "specialRequestsPlaceholder": "Allergies, special occasions, table preferences...",
+    "submit": "Confirm Reservation",
+    "success": "Reservation confirmed! We've sent a confirmation email.",
+    "timeSlots": {
+      "lunch": "Lunch",
+      "dinner": "Dinner"
+    },
+    "errors": {
+      "required": "This field is required",
+      "invalidEmail": "Please enter a valid email address",
+      "invalidPhone": "Please enter a valid phone number",
+      "pastDate": "Please select a future date",
+      "generic": "An error occurred. Please try again."
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We're here for you",
+    "description": "Have a question, suggestion, or feedback? Send us a message and we'll respond as soon as possible.",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "subject": "Subject",
+      "subjectPlaceholder": "Message subject",
+      "message": "Message",
+      "messagePlaceholder": "Write your message here...",
+      "submit": "Send Message",
+      "success": "Message sent successfully! We'll respond soon.",
+      "errors": {
+        "required": "This field is required",
+        "invalidEmail": "Please enter a valid email address",
+        "messageTooShort": "Message must be at least 10 characters",
+        "generic": "An error occurred. Please try again."
+      }
+    },
+    "info": {
+      "title": "Information",
+      "address": "Address",
+      "addressValue": "42 Industrial Forge Street\n4000-123 Porto, Portugal",
+      "phone": "Phone",
+      "phoneValue": "+351 222 333 444",
+      "email": "Email",
+      "emailValue": "info@forgeburger.pt",
+      "hours": "Hours",
+      "hoursValue": "Tue-Sun: 12:00 PM - 11:00 PM\nMon: Closed"
+    }
+  },
+  "footer": {
+    "description": "Artisan burgers forged with passion in the heart of Porto.",
+    "navigation": "Navigation",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "cookies": "Cookie Policy",
+    "social": "Social Media",
+    "newsletter": {
+      "title": "Newsletter",
+      "description": "Subscribe to receive news and exclusive offers.",
+      "placeholder": "Your email",
+      "submit": "Subscribe",
+      "success": "Subscribed successfully!"
+    },
+    "copyright": "© {year} Forge Burger. All rights reserved."
+  }
+}
