@@ -82,7 +82,7 @@ export const menuItems: MenuItem[] = [
     image:
       "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=800&q=80",
     category: "burgers",
-    tags: ["premium"],
+    tags: [],
     allergens: ["gluten", "dairy"],
   },
   {
@@ -92,7 +92,7 @@ export const menuItems: MenuItem[] = [
     image:
       "https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?w=800&q=80",
     category: "burgers",
-    tags: ["spicy"],
+    tags: [],
     allergens: ["gluten", "dairy", "spicy"],
   },
   {
@@ -102,7 +102,7 @@ export const menuItems: MenuItem[] = [
     image:
       "https://images.unsplash.com/photo-1520072959219-c595dc870360?w=800&q=80",
     category: "burgers",
-    tags: ["vegetarian"],
+    tags: [],
     allergens: ["gluten", "dairy", "vegetarian", "nuts"],
   },
   {

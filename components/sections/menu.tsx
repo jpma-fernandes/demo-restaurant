@@ -208,7 +208,7 @@ export function MenuSection() {
                     <div className="relative">
                       <div className="absolute inset-0 bg-ember/20 blur-xl rounded-full" />
                       <div className="relative bg-gradient-to-br from-charcoal/95 to-charcoal border border-ember/30 backdrop-blur-sm rounded-2xl px-4 py-2 shadow-xl">
-                        <span className="text-ember font-black text-xl tracking-tight">
+                        <span className="text-white font-semibold text-l tracking-tight">
                           €{item.price.toFixed(2)}
                         </span>
                       </div>
@@ -271,7 +271,7 @@ export function MenuSection() {
                       {/* Left: Name + Description */}
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-3 mb-1">
-                          <h4 className="text-smoke font-semibold text-lg">
+                          <h4 className="text-ember font-semibold text-lg">
                             {t(`items.${item.translationKey}.name`)}
                           </h4>
                           {/* Tags as subtle badges */}
@@ -310,7 +310,7 @@ export function MenuSection() {
 
                       {/* Right: Price */}
                       <div className="flex-shrink-0">
-                        <span className="text-ember font-bold text-lg whitespace-nowrap">
+                        <span className="text-white text-base whitespace-nowrap">
                           €{item.price.toFixed(2)}
                         </span>
                       </div>
