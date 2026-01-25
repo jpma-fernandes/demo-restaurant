@@ -63,6 +63,7 @@ export const menuItems: MenuItem[] = [
       "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&q=80",
     category: "burgers",
     tags: ["popular"],
+    allergens: ["gluten", "dairy"],
   },
   {
     id: "smoky",
@@ -72,6 +73,7 @@ export const menuItems: MenuItem[] = [
       "https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=800&q=80",
     category: "burgers",
     tags: ["signature"],
+    allergens: ["gluten", "dairy", "pork"],
   },
   {
     id: "truffle",
@@ -81,6 +83,7 @@ export const menuItems: MenuItem[] = [
       "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=800&q=80",
     category: "burgers",
     tags: ["premium"],
+    allergens: ["gluten", "dairy"],
   },
   {
     id: "inferno",
@@ -90,6 +93,7 @@ export const menuItems: MenuItem[] = [
       "https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?w=800&q=80",
     category: "burgers",
     tags: ["spicy"],
+    allergens: ["gluten", "dairy", "spicy"],
   },
   {
     id: "veggie",
@@ -99,6 +103,7 @@ export const menuItems: MenuItem[] = [
       "https://images.unsplash.com/photo-1520072959219-c595dc870360?w=800&q=80",
     category: "burgers",
     tags: ["vegetarian"],
+    allergens: ["gluten", "dairy", "vegetarian", "nuts"],
   },
   {
     id: "bacon",
@@ -108,6 +113,7 @@ export const menuItems: MenuItem[] = [
       "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=800&q=80",
     category: "burgers",
     tags: ["bestseller"],
+    allergens: ["gluten", "dairy", "pork", "egg"],
   },
 
   // Drinks
@@ -127,6 +133,7 @@ export const menuItems: MenuItem[] = [
       "https://images.unsplash.com/photo-1621263764928-df1444c5e859?w=800&q=80",
     category: "drinks",
     tags: ["popular"],
+    allergens: ["vegan"],
   },
   {
     id: "craftBeer",
@@ -136,6 +143,7 @@ export const menuItems: MenuItem[] = [
       "https://images.unsplash.com/photo-1535958636474-b021ee887b13?w=800&q=80",
     category: "drinks",
     tags: ["premium"],
+    allergens: ["gluten", "alcohol"],
   },
   {
     id: "sparklingWater",
@@ -144,6 +152,7 @@ export const menuItems: MenuItem[] = [
     image:
       "https://images.unsplash.com/photo-1523362628745-0c100150b504?w=800&q=80",
     category: "drinks",
+    allergens: ["vegan"],
   },
 
   // Sides
@@ -155,6 +164,7 @@ export const menuItems: MenuItem[] = [
       "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=800&q=80",
     category: "sides",
     tags: ["popular"],
+    allergens: ["vegan"],
   },
   {
     id: "onionRings",
@@ -163,6 +173,7 @@ export const menuItems: MenuItem[] = [
     image:
       "https://images.unsplash.com/photo-1639024471283-03518883512d?w=800&q=80",
     category: "sides",
+    allergens: ["gluten", "egg"],
   },
   {
     id: "coleslaw",
@@ -171,6 +182,7 @@ export const menuItems: MenuItem[] = [
     image:
       "https://images.unsplash.com/photo-1625938145744-e380515399bf?w=800&q=80",
     category: "sides",
+    allergens: ["egg", "vegetarian"],
   },
   {
     id: "nachos",
@@ -180,6 +192,7 @@ export const menuItems: MenuItem[] = [
       "https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?w=800&q=80",
     category: "sides",
     tags: ["signature"],
+    allergens: ["dairy", "vegetarian"],
   },
 
   // Milkshakes
@@ -191,6 +204,7 @@ export const menuItems: MenuItem[] = [
       "https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=800&q=80",
     category: "milkshakes",
     tags: ["popular"],
+    allergens: ["dairy"],
   },
   {
     id: "strawberryShake",
@@ -199,6 +213,7 @@ export const menuItems: MenuItem[] = [
     image:
       "https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=800&q=80",
     category: "milkshakes",
+    allergens: ["dairy"],
   },
   {
     id: "vanillaShake",
@@ -207,6 +222,7 @@ export const menuItems: MenuItem[] = [
     image:
       "https://images.unsplash.com/photo-1568901839119-631418a3910d?w=800&q=80",
     category: "milkshakes",
+    allergens: ["dairy"],
   },
   {
     id: "oreoShake",
@@ -216,6 +232,7 @@ export const menuItems: MenuItem[] = [
       "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=800&q=80",
     category: "milkshakes",
     tags: ["premium"],
+    allergens: ["dairy", "gluten"],
   },
 ];
 

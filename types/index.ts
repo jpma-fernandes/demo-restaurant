@@ -25,6 +25,9 @@ export interface SectionConfigState {
 // Menu category type
 export type MenuCategory = "burgers" | "drinks" | "sides" | "milkshakes";
 
+// Allergen/dietary type
+export type Allergen = "pork" | "egg" | "gluten" | "dairy" | "vegetarian" | "vegan" | "spicy" | "alcohol" | "nuts";
+
 // Menu item type
 export interface MenuItem {
   id: string;
@@ -33,6 +36,7 @@ export interface MenuItem {
   image: string;
   category: MenuCategory;
   tags?: string[];
+  allergens?: Allergen[];
 }
 
 // Event item type
