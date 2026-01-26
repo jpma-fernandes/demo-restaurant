@@ -25,6 +25,8 @@ import {
   PartyPopper,
   Utensils,
   MessageSquare,
+  Sun,
+  Moon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
@@ -191,14 +193,14 @@ export function ReservationsSection() {
           {/* Progress Bar - Clean with icons */}
           <div className="mb-12">
             <div className="relative flex justify-between">
-              {/* Line Background */}
-              <div className="absolute top-5 left-0 w-full h-1 bg-sand rounded-full z-0" />
-
-              {/* Active Line Progress */}
-              <div
-                className="absolute top-5 left-0 h-1 bg-gradient-to-r from-tomato to-tomato-light rounded-full z-0 transition-all duration-500 ease-out"
-                style={{ width: `${(currentStep / (STEPS.length - 1)) * 100}%` }}
-              />
+              <div className="absolute top-5 left-0 w-full px-[1.375rem] z-0">
+                <div className="relative h-1 w-full bg-sand rounded-full">
+                  <div
+                    className="absolute top-0 left-0 h-full bg-gradient-to-r from-tomato to-tomato-light rounded-full transition-all duration-500 ease-out"
+                    style={{ width: `${(currentStep / (STEPS.length - 1)) * 100}%` }}
+                  />
+                </div>
+              </div>
 
               {/* Step Circles with Icons */}
               {STEPS.map((step, index) => {
@@ -309,12 +311,11 @@ export function ReservationsSection() {
 
                 {/* Step 2: Guest Selection */}
                 {currentStep === 1 && (
-                  <div className="flex flex-col items-center animate-in fade-in slide-in-from-right-8 duration-500">
+                  <div className="flex flex-col items-center animate-in fade-in slide-in-from-right-8 duration-500 min-h-[400px]">
                     <h3 className="text-2xl font-black text-espresso mb-2">
                       {t("guestSelection")}
                     </h3>
-                    <p className="text-latte mb-8">{locale === "pt" ? "Quantas pessoas vão jantar?" : "How many guests will be dining?"}</p>
-                    <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 w-full max-w-2xl">
+                    <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 w-full max-w-2xl my-auto">
                       {guestOptions.map((num) => (
                         <button
                           key={num}
@@ -330,7 +331,7 @@ export function ReservationsSection() {
                             "h-5 w-5 transition-colors",
                             formData.guests === num ? "text-white" : "text-tomato"
                           )} />
-                          <span className="text-xl font-black">{num}</span>
+                          <span className="text-xl font-semibold">{num}</span>
                         </button>
                       ))}
                     </div>
@@ -339,26 +340,68 @@ export function ReservationsSection() {
 
                 {/* Step 3: Time Selection */}
                 {currentStep === 2 && (
-                  <div className="flex flex-col items-center animate-in fade-in slide-in-from-right-8 duration-500">
+                  <div className="flex flex-col items-center animate-in fade-in slide-in-from-right-8 duration-500 min-h-[400px]">
                     <h3 className="text-2xl font-black text-espresso mb-2">
                       {t("timeSelection")}
                     </h3>
-                    <p className="text-latte mb-8">{locale === "pt" ? "A que horas prefere?" : "What time would you prefer?"}</p>
-                    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4 w-full max-w-2xl">
-                      {timeSlots.map((time) => (
-                        <button
-                          key={time}
-                          onClick={() => handleTimeSelect(time)}
-                          className={cn(
-                            "cursor-pointer py-4 rounded-xl border-2 text-sm font-bold transition-all duration-300",
-                            formData.time === time
-                              ? "bg-gradient-to-br from-tomato to-tomato-light border-tomato text-white shadow-lg shadow-tomato/25"
-                              : "bg-white border-sand text-coffee hover:border-tomato hover:shadow-md"
-                          )}
-                        >
-                          {time}
-                        </button>
-                      ))}
+                    <div className="w-full max-w-2xl space-y-8 mt-8">
+                      {/* Lunch Section */}
+                      <div>
+                        <div className="flex items-center gap-4 mb-4">
+                          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-sand to-transparent"></div>
+                          <span className="text-tomato font-bold uppercase tracking-wider text-sm flex items-center gap-2 bg-soft-beige px-3 py-1 rounded-full">
+                            <Sun className="h-4 w-4" />
+                            {t("timeSlots.lunch")}
+                          </span>
+                          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-sand to-transparent"></div>
+                        </div>
+                        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4">
+                          {timeSlots
+                            .filter(time => parseInt(time.split(':')[0]) < 16)
+                            .map((time) => (
+                              <button
+                                key={time}
+                                onClick={() => handleTimeSelect(time)}
+                                className={cn(
+                                  "cursor-pointer py-4 rounded-xl border-2 text-sm font-bold transition-all duration-300",
+                                  formData.time === time
+                                    ? "bg-gradient-to-br from-tomato to-tomato-light border-tomato text-white shadow-lg shadow-tomato/25"
+                                    : "bg-white border-sand text-coffee hover:border-tomato hover:shadow-md"
+                                )}
+                              >
+                                {time}
+                              </button>
+                            ))}
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-4 mb-4">
+                          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-sand to-transparent"></div>
+                          <span className="text-tomato font-bold uppercase tracking-wider text-sm flex items-center gap-2 bg-soft-beige px-3 py-1 rounded-full">
+                            <Moon className="h-4 w-4" />
+                            {t("timeSlots.dinner")}
+                          </span>
+                          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-sand to-transparent"></div>
+                        </div>
+                        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4">
+                          {timeSlots
+                            .filter(time => parseInt(time.split(':')[0]) > 16)
+                            .map((time) => (
+                              <button
+                                key={time}
+                                onClick={() => handleTimeSelect(time)}
+                                className={cn(
+                                  "cursor-pointer py-4 rounded-xl border-2 text-sm font-bold transition-all duration-300",
+                                  formData.time === time
+                                    ? "bg-gradient-to-br from-tomato to-tomato-light border-tomato text-white shadow-lg shadow-tomato/25"
+                                    : "bg-white border-sand text-coffee hover:border-tomato hover:shadow-md"
+                                )}
+                              >
+                                {time}
+                              </button>
+                            ))}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 )}

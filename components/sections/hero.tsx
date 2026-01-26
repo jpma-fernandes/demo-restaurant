@@ -47,7 +47,7 @@ export function HeroSection() {
           {/* Decorative line */}
           <div className="flex items-center justify-center gap-4 mb-8">
             <div className="h-px w-12 bg-white" />
-            <span className="text-sm uppercase tracking-[0.3em] font-medium">
+            <span className="text-sm uppercase tracking-[0.3em] font-medium text-white">
               Est. 2019
             </span>
             <div className="h-px w-12 bg-white" />
@@ -57,8 +57,6 @@ export function HeroSection() {
           <h1 className="text-[130px] md:text-[160px] lg:text-[200px] font-fascinate text-smoke tracking-tight">
             Forja
           </h1>
-
-
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
