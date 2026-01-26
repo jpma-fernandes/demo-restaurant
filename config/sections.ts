@@ -161,7 +161,7 @@ export const menuItems: MenuItem[] = [
     translationKey: "fries",
     price: 4.9,
     image:
-      "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=800&q=80",
+      "/images/fries.png",
     category: "sides",
     tags: ["popular"],
     allergens: ["vegan"],
@@ -171,7 +171,7 @@ export const menuItems: MenuItem[] = [
     translationKey: "onionRings",
     price: 5.9,
     image:
-      "https://images.unsplash.com/photo-1639024471283-03518883512d?w=800&q=80",
+      "/images/onion.png",
     category: "sides",
     allergens: ["gluten", "egg"],
   },
@@ -180,7 +180,7 @@ export const menuItems: MenuItem[] = [
     translationKey: "coleslaw",
     price: 3.9,
     image:
-      "https://images.unsplash.com/photo-1625938145744-e380515399bf?w=800&q=80",
+      "/images/coleslaw.png",
     category: "sides",
     allergens: ["egg", "vegetarian"],
   },
@@ -189,7 +189,7 @@ export const menuItems: MenuItem[] = [
     translationKey: "nachos",
     price: 7.9,
     image:
-      "https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?w=800&q=80",
+      "/images/nachos.png",
     category: "sides",
     tags: ["signature"],
     allergens: ["dairy", "vegetarian"],
