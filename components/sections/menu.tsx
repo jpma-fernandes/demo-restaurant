@@ -180,9 +180,6 @@ export function MenuSection() {
             {t("title").split(" ").slice(0, -1).join(" ")}{" "}
             <span className="text-tomato">{t("title").split(" ").slice(-1)}</span>
           </h2>
-          <p className="text-latte text-lg max-w-xl mx-auto">
-            Feito com amor e ingredientes frescos todos os dias
-          </p>
         </div>
 
         {/* Category Navbar + View Toggle */}
@@ -193,7 +190,7 @@ export function MenuSection() {
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`group relative flex items-center gap-2.5 px-6 py-3.5 rounded-2xl text-sm font-bold uppercase tracking-wide transition-all duration-400 ease-out ${activeCategory === category
+                className={`cursor-pointer group relative flex items-center gap-2.5 px-6 py-3.5 rounded-2xl text-sm font-bold uppercase tracking-wide transition-all duration-400 ease-out ${activeCategory === category
                   ? "bg-tomato text-white shadow-xl shadow-tomato/30 scale-105"
                   : "bg-white text-coffee hover:bg-soft-beige hover:shadow-lg hover:scale-102 border-2 border-sand hover:border-tomato/30"
                   }`}
@@ -216,7 +213,7 @@ export function MenuSection() {
           <div className="flex gap-2 bg-white rounded-2xl p-1.5 shadow-lg border-2 border-sand">
             <button
               onClick={() => setViewMode("picture")}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 ${viewMode === "picture"
+              className={`cursor-pointer flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 ${viewMode === "picture"
                 ? "bg-tomato text-white shadow-md"
                 : "text-latte hover:text-espresso hover:bg-soft-beige"
                 }`}
@@ -227,7 +224,7 @@ export function MenuSection() {
             </button>
             <button
               onClick={() => setViewMode("minimalist")}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 ${viewMode === "minimalist"
+              className={`cursor-pointer flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 ${viewMode === "minimalist"
                 ? "bg-tomato text-white shadow-md"
                 : "text-latte hover:text-espresso hover:bg-soft-beige"
                 }`}
