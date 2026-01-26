@@ -60,7 +60,7 @@ export const menuItems: MenuItem[] = [
     translationKey: "classic",
     price: 14.9,
     image:
-      "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&q=80",
+      "/images/burguer1.png",
     category: "burgers",
     tags: ["popular"],
     allergens: ["gluten", "dairy"],
@@ -70,7 +70,7 @@ export const menuItems: MenuItem[] = [
     translationKey: "smoky",
     price: 17.9,
     image:
-      "https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=800&q=80",
+      "/images/smoked_burguer.png",
     category: "burgers",
     tags: ["signature"],
     allergens: ["gluten", "dairy", "pork"],
@@ -80,7 +80,7 @@ export const menuItems: MenuItem[] = [
     translationKey: "truffle",
     price: 21.9,
     image:
-      "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=800&q=80",
+      "/images/truffle_burguer.png",
     category: "burgers",
     tags: [],
     allergens: ["gluten", "dairy"],
@@ -90,7 +90,7 @@ export const menuItems: MenuItem[] = [
     translationKey: "inferno",
     price: 16.9,
     image:
-      "https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?w=800&q=80",
+      "/images/hot_burguer.png",
     category: "burgers",
     tags: [],
     allergens: ["gluten", "dairy", "spicy"],
@@ -100,7 +100,7 @@ export const menuItems: MenuItem[] = [
     translationKey: "veggie",
     price: 15.9,
     image:
-      "https://images.unsplash.com/photo-1520072959219-c595dc870360?w=800&q=80",
+      "/images/vegan_burguer.png",
     category: "burgers",
     tags: [],
     allergens: ["gluten", "dairy", "vegetarian", "nuts"],
@@ -110,7 +110,7 @@ export const menuItems: MenuItem[] = [
     translationKey: "bacon",
     price: 18.9,
     image:
-      "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=800&q=80",
+      "/images/supreme_burguer.png",
     category: "burgers",
     tags: ["bestseller"],
     allergens: ["gluten", "dairy", "pork", "egg"],

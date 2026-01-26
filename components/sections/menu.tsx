@@ -18,10 +18,44 @@ import {
   Wine,
   Nut,
   Sparkles,
+  UtensilsCrossed,
+  Coffee,
+  IceCream,
+  Beer,
 } from "lucide-react";
 import { MenuCategory, Allergen } from "@/types";
 
 const categories: MenuCategory[] = ["burgers", "drinks", "sides", "milkshakes"];
+
+const getCategoryIcon = (category: MenuCategory) => {
+  switch (category) {
+    case "burgers":
+      return <UtensilsCrossed className="h-5 w-5" />;
+    case "drinks":
+      return <Coffee className="h-5 w-5" />;
+    case "sides":
+      return <Beer className="h-5 w-5" />;
+    case "milkshakes":
+      return <IceCream className="h-5 w-5" />;
+    default:
+      return null;
+  }
+};
+
+const getCategoryEmoji = (category: MenuCategory) => {
+  switch (category) {
+    case "burgers":
+      return "🍔";
+    case "drinks":
+      return "🥤";
+    case "sides":
+      return "🍟";
+    case "milkshakes":
+      return "🥛";
+    default:
+      return "🍽️";
+  }
+};
 
 export function MenuSection() {
   const t = useTranslations("menu");
@@ -58,6 +92,24 @@ export function MenuSection() {
       bestseller: "Bestseller",
     };
     return labels[tag] || tag;
+  };
+
+  const getTagColors = (tag: string) => {
+    switch (tag) {
+      case "popular":
+        return "bg-gradient-to-r from-tomato to-tomato-light text-white";
+      case "vegetarian":
+        return "bg-gradient-to-r from-mint to-mint-light text-white";
+      case "premium":
+      case "signature":
+        return "bg-gradient-to-r from-sunshine to-mustard text-espresso";
+      case "spicy":
+        return "bg-gradient-to-r from-mustard to-tomato text-white";
+      case "bestseller":
+        return "bg-gradient-to-r from-tomato to-sunshine text-white";
+      default:
+        return "bg-soft-beige text-coffee";
+    }
   };
 
   const getAllergenIcon = (allergen: Allergen) => {
@@ -105,47 +157,68 @@ export function MenuSection() {
   };
 
   return (
-    <div className="bg-cream py-20 lg:py-32">
-      <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <div className="h-px w-12 bg-ember" />
-            <span className="text-ember text-sm uppercase tracking-[0.2em] font-medium">
+    <section className="relative bg-cream py-20 lg:py-28 overflow-hidden">
+      {/* Fun decorative background elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-sunshine/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-tomato/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+      <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-mint/10 rounded-full blur-3xl" />
+
+      {/* Decorative dots pattern */}
+      <div className="absolute inset-0 pattern-dots opacity-30" />
+
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Section Header - Fun & Playful */}
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="inline-flex items-center gap-3 bg-white/80 backdrop-blur-sm px-6 py-2 rounded-full shadow-lg shadow-tomato/10 mb-6">
+            <span className="text-2xl">🍽️</span>
+            <span className="text-tomato text-sm uppercase tracking-[0.2em] font-bold">
               {t("subtitle")}
             </span>
-            <div className="h-px w-12 bg-ember" />
+            <span className="text-2xl">✨</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-flame-red mb-4">
-            {t("title")}
+          <h2 className="text-5xl md:text-6xl font-black text-espresso mb-4 leading-tight">
+            {t("title").split(" ").slice(0, -1).join(" ")}{" "}
+            <span className="text-tomato">{t("title").split(" ").slice(-1)}</span>
           </h2>
+          <p className="text-latte text-lg max-w-xl mx-auto">
+            Feito com amor e ingredientes frescos todos os dias
+          </p>
         </div>
 
         {/* Category Navbar + View Toggle */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-10">
-          {/* Category Tabs */}
-          <div className="flex flex-wrap justify-center gap-2 bg-charcoal/50 rounded-xl p-2 border border-gunmetal">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-6 mb-12">
+          {/* Category Pills - Fun rounded buttons */}
+          <div className="flex flex-wrap justify-center gap-3">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`px-5 py-2.5 rounded-lg text-sm font-semibold uppercase tracking-wide transition-all duration-300 ${activeCategory === category
-                  ? "bg-ember text-charcoal shadow-lg shadow-ember/25"
-                  : "text-iron hover:text-smoke hover:bg-gunmetal/50"
+                className={`group relative flex items-center gap-2.5 px-6 py-3.5 rounded-2xl text-sm font-bold uppercase tracking-wide transition-all duration-400 ease-out ${activeCategory === category
+                  ? "bg-tomato text-white shadow-xl shadow-tomato/30 scale-105"
+                  : "bg-white text-coffee hover:bg-soft-beige hover:shadow-lg hover:scale-102 border-2 border-sand hover:border-tomato/30"
                   }`}
               >
-                {t(`categories.${category}`)}
+                {/* Category emoji on hover */}
+                <span className={`transition-transform duration-300 ${activeCategory === category ? "scale-110" : "group-hover:scale-125"}`}>
+                  {getCategoryEmoji(category)}
+                </span>
+                <span>{t(`categories.${category}`)}</span>
+
+                {/* Active indicator dot */}
+                {activeCategory === category && (
+                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-sunshine rounded-full border-2 border-white animate-pulse-glow" />
+                )}
               </button>
             ))}
           </div>
 
-          {/* View Mode Toggle */}
-          <div className="flex gap-1 bg-charcoal/50 rounded-lg p-1 border border-gunmetal">
+          {/* View Mode Toggle - Clean switch */}
+          <div className="flex gap-2 bg-white rounded-2xl p-1.5 shadow-lg border-2 border-sand">
             <button
               onClick={() => setViewMode("picture")}
-              className={`flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 ${viewMode === "picture"
-                ? "bg-ember text-charcoal"
-                : "text-iron hover:text-smoke"
+              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 ${viewMode === "picture"
+                ? "bg-tomato text-white shadow-md"
+                : "text-latte hover:text-espresso hover:bg-soft-beige"
                 }`}
               title={t("viewMode.picture")}
             >
@@ -154,9 +227,9 @@ export function MenuSection() {
             </button>
             <button
               onClick={() => setViewMode("minimalist")}
-              className={`flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 ${viewMode === "minimalist"
-                ? "bg-ember text-charcoal"
-                : "text-iron hover:text-smoke"
+              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 ${viewMode === "minimalist"
+                ? "bg-tomato text-white shadow-md"
+                : "text-latte hover:text-espresso hover:bg-soft-beige"
                 }`}
               title={t("viewMode.minimalist")}
             >
@@ -166,34 +239,34 @@ export function MenuSection() {
           </div>
         </div>
 
-        {/* Picture Mode - Premium Card Grid */}
+        {/* Picture Mode - Fun Card Grid */}
         {viewMode === "picture" && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredItems.map((item) => (
+            {filteredItems.map((item, index) => (
               <Card
                 key={item.id}
-                className="bg-charcoal border-gunmetal overflow-hidden group hover:border-ember/50 transition-all duration-500 hover:shadow-2xl hover:shadow-ember/10 p-0 gap-0"
+                className="group bg-white border-2 border-sand overflow-hidden rounded-3xl hover:border-tomato/40 transition-all duration-500 hover:shadow-2xl hover:shadow-tomato/15 p-0 gap-0 card-hover"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
-                {/* Image Container with Overlay Effects */}
-                <div className="relative h-56 overflow-hidden">
+                {/* Image Container with Fun Effects */}
+                <div className="relative h-56 overflow-hidden bg-soft-beige">
                   <Image
                     src={item.image}
                     alt={t(`items.${item.translationKey}.name`)}
                     fill
-                    className="object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
+                    className="object-cover transition-all duration-700 group-hover:scale-110"
                   />
 
-                  {/* Gradient Overlays */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/20 to-transparent opacity-90" />
-                  <div className="absolute inset-0 bg-gradient-to-br from-ember/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  {/* Subtle gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                  {/* Tags - Top Left */}
+                  {/* Tags - Top Left with fun styling */}
                   {item.tags && item.tags.length > 0 && (
                     <div className="absolute top-4 left-4 flex gap-2">
                       {item.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="flex items-center gap-1.5 bg-gradient-to-r from-ember to-amber-500 text-charcoal text-xs font-bold px-3 py-1.5 rounded-full uppercase shadow-lg shadow-ember/30"
+                          className={`flex items-center gap-1.5 ${getTagColors(tag)} text-xs font-bold px-3 py-1.5 rounded-full uppercase shadow-lg`}
                         >
                           {getTagIcon(tag)}
                           {getTagLabel(tag)}
@@ -202,41 +275,40 @@ export function MenuSection() {
                     </div>
                   )}
 
-                  {/* Price Badge - Floating Design */}
+                  {/* Price Badge - Fun floating design */}
                   <div className="absolute bottom-4 right-4">
                     <div className="relative">
-                      <div className="absolute inset-0 bg-ember/20 blur-xl rounded-full" />
-                      <div className="relative bg-gradient-to-br from-charcoal/95 to-charcoal border border-ember/30 backdrop-blur-sm rounded-2xl px-4 py-2 shadow-xl">
-                        <span className="text-white font-semibold text-l tracking-tight">
+                      <div className="absolute inset-0 bg-tomato/30 blur-lg rounded-full scale-150" />
+                      <div className="relative bg-white border-3 border-tomato rounded-2xl px-4 py-2 shadow-xl group-hover:scale-110 transition-transform duration-300">
+                        <span className="text-tomato font-black text-lg">
                           €{item.price.toFixed(2)}
                         </span>
                       </div>
                     </div>
                   </div>
-
-                  {/* Bottom Name Overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 p-4 pt-12">
-                    <h3 className="text-smoke font-bold text-xl drop-shadow-lg group-hover:text-ember transition-colors duration-300">
-                      {t(`items.${item.translationKey}.name`)}
-                    </h3>
-                  </div>
                 </div>
 
                 {/* Content */}
-                <CardContent className="p-5 pt-4">
-                  {/* Allergens Row - Above Description */}
+                <CardContent className="p-6 pt-5">
+                  {/* Item Name with fun styling */}
+                  <h3 className="text-espresso font-bold text-xl mb-2 group-hover:text-tomato transition-colors duration-300">
+                    {t(`items.${item.translationKey}.name`)}
+                  </h3>
+
+                  {/* Allergens Row - Colorful icons */}
                   {item.allergens && item.allergens.length > 0 && (
-                    <div className="flex flex-wrap items-center gap-1.5 mb-3">
+                    <div className="flex flex-wrap items-center gap-2 mb-3">
                       {item.allergens.map((allergen) => (
                         <div
                           key={allergen}
-                          className="group/allergen relative flex items-center justify-center w-6 h-6 rounded-full bg-gunmetal/50 text-iron hover:bg-ember/20 hover:text-ember transition-all duration-200 cursor-help"
+                          className="group/allergen relative flex items-center justify-center w-7 h-7 rounded-full bg-soft-beige text-latte hover:bg-mint/20 hover:text-mint transition-all duration-200 cursor-help"
                           title={getAllergenLabel(allergen)}
                         >
                           {getAllergenIcon(allergen)}
                           {/* Tooltip */}
-                          <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-charcoal border border-gunmetal rounded px-2 py-1 text-xs text-smoke whitespace-nowrap opacity-0 group-hover/allergen:opacity-100 transition-opacity duration-200 pointer-events-none shadow-lg z-10">
+                          <div className="absolute -top-9 left-1/2 -translate-x-1/2 bg-espresso rounded-lg px-3 py-1.5 text-xs text-white whitespace-nowrap opacity-0 group-hover/allergen:opacity-100 transition-opacity duration-200 pointer-events-none shadow-lg z-10">
                             {getAllergenLabel(allergen)}
+                            <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-espresso" />
                           </div>
                         </div>
                       ))}
@@ -244,7 +316,7 @@ export function MenuSection() {
                   )}
 
                   {/* Description */}
-                  <p className="text-iron text-sm leading-relaxed line-clamp-2">
+                  <p className="text-latte text-sm leading-relaxed line-clamp-2">
                     {t(`items.${item.translationKey}.description`)}
                   </p>
                 </CardContent>
@@ -253,33 +325,38 @@ export function MenuSection() {
           </div>
         )}
 
-        {/* Minimalist Mode - Elegant List */}
+        {/* Minimalist Mode - Clean List */}
         {viewMode === "minimalist" && (
           <div className="max-w-4xl mx-auto">
-            <div className="bg-charcoal/30 border border-gunmetal rounded-2xl p-6 sm:p-10">
-              {/* Category Title */}
-              <h3 className="text-center text-ember text-2xl font-bold uppercase tracking-widest mb-8 pb-4 border-b border-gunmetal">
-                {t(`categories.${activeCategory}`)}
-              </h3>
+            <div className="bg-white border-2 border-sand rounded-3xl p-8 sm:p-12 shadow-xl">
+              {/* Category Title with emoji */}
+              <div className="flex items-center justify-center gap-4 mb-10">
+                <div className="h-px flex-1 bg-gradient-to-r from-transparent to-sand" />
+                <h3 className="flex items-center gap-3 text-tomato text-2xl font-black uppercase tracking-widest">
+                  <span className="text-3xl">{getCategoryEmoji(activeCategory)}</span>
+                  {t(`categories.${activeCategory}`)}
+                </h3>
+                <div className="h-px flex-1 bg-gradient-to-l from-transparent to-sand" />
+              </div>
 
               {/* Menu Items List */}
-              <div className="space-y-6">
+              <div className="space-y-0">
                 {filteredItems.map((item, index) => (
                   <div key={item.id}>
-                    <div className="flex items-start justify-between gap-4">
+                    <div className="group flex items-start justify-between gap-6 py-6 hover:bg-soft-beige/50 px-4 -mx-4 rounded-2xl transition-colors duration-300">
                       {/* Left: Name + Description */}
                       <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-3 mb-1">
-                          <h4 className="text-ember font-semibold text-lg">
+                        <div className="flex items-center gap-3 mb-2">
+                          <h4 className="text-espresso font-bold text-lg group-hover:text-tomato transition-colors">
                             {t(`items.${item.translationKey}.name`)}
                           </h4>
-                          {/* Tags as subtle badges */}
+                          {/* Tags as subtle icons */}
                           {item.tags && item.tags.length > 0 && (
-                            <div className="flex gap-1">
+                            <div className="flex gap-1.5">
                               {item.tags.map((tag) => (
                                 <span
                                   key={tag}
-                                  className="flex items-center gap-0.5 text-ember text-xs"
+                                  className={`flex items-center justify-center w-6 h-6 rounded-full ${getTagColors(tag)}`}
                                   title={getTagLabel(tag)}
                                 >
                                   {getTagIcon(tag)}
@@ -288,16 +365,16 @@ export function MenuSection() {
                             </div>
                           )}
                         </div>
-                        <p className="text-iron text-sm leading-relaxed line-clamp-2 mb-2">
+                        <p className="text-latte text-sm leading-relaxed line-clamp-2 mb-2">
                           {t(`items.${item.translationKey}.description`)}
                         </p>
                         {/* Allergens inline */}
                         {item.allergens && item.allergens.length > 0 && (
-                          <div className="flex items-center gap-1.5">
+                          <div className="flex items-center gap-2">
                             {item.allergens.map((allergen) => (
                               <span
                                 key={allergen}
-                                className="text-iron/50 hover:text-ember transition-colors"
+                                className="text-cappuccino hover:text-mint transition-colors"
                                 title={getAllergenLabel(allergen)}
                               >
                                 {getAllergenIcon(allergen)}
@@ -307,9 +384,12 @@ export function MenuSection() {
                         )}
                       </div>
 
+                      {/* Dotted line connector */}
+                      <div className="flex-shrink-0 flex-1 max-w-32 border-b-2 border-dotted border-sand self-center mx-4" />
+
                       {/* Right: Price */}
                       <div className="flex-shrink-0">
-                        <span className="text-white text-base whitespace-nowrap">
+                        <span className="text-tomato font-black text-xl">
                           €{item.price.toFixed(2)}
                         </span>
                       </div>
@@ -317,7 +397,7 @@ export function MenuSection() {
 
                     {/* Divider (except last item) */}
                     {index < filteredItems.length - 1 && (
-                      <div className="mt-6 border-b border-gunmetal/50" />
+                      <div className="border-b border-sand/50" />
                     )}
                   </div>
                 ))}
@@ -326,6 +406,6 @@ export function MenuSection() {
           </div>
         )}
       </div>
-    </div>
+    </section>
   );
 }
