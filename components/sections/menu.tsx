@@ -183,7 +183,7 @@ export function MenuSection() {
   };
 
   return (
-    <section className="relative bg-cream py-20 lg:py-28 overflow-hidden">
+    <section className="relative bg-cream pt-20 lg:pt-28 overflow-x-clip" id="menu">
       {/* Fun decorative background elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-sunshine/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-tomato/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
@@ -192,9 +192,9 @@ export function MenuSection() {
       {/* Decorative dots pattern */}
       <div className="absolute inset-0 pattern-dots opacity-30" />
 
+      {/* Section Header - Fun & Playful */}
       <div className="container mx-auto px-4 relative z-10">
-        {/* Section Header - Fun & Playful */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        <div className="text-center max-w-3xl mx-auto mb-8">
           <div className="inline-flex items-center gap-3 bg-white/80 backdrop-blur-sm px-6 py-2 rounded-full shadow-lg shadow-tomato/10 mb-6">
             <span className="text-2xl">🍽️</span>
             <span className="text-tomato text-sm uppercase tracking-[0.2em] font-bold">
@@ -207,73 +207,86 @@ export function MenuSection() {
             <span className="text-tomato">{t("title").split(" ").slice(-1)}</span>
           </h2>
         </div>
+      </div>
 
-        {/* Category Navbar + View Toggle */}
-        <div className="flex flex-col lg:flex-row items-center lg:justify-between gap-4 sm:gap-6 mb-8 sm:mb-12">
-          {/* Category Pills - Horizontal scroll on mobile, left-aligned on desktop */}
-          <div 
-            ref={scrollContainerRef}
-            className="w-full sm:w-auto overflow-x-auto sm:overflow-visible py-3 scrollbar-hide"
-          >
-            <div className="flex gap-2 sm:gap-3 min-w-max sm:min-w-0 px-[calc(50%-4rem)] sm:px-1 sm:justify-center lg:justify-start sm:flex-wrap">
-              {categories.map((category) => (
-                <div 
-                  key={category} 
-                  className="relative"
-                  ref={(el) => {
-                    if (el) categoryRefs.current.set(category, el);
-                  }}
-                >
-                  {/* Active indicator dot - positioned outside button to avoid clipping */}
-                  {activeCategory === category && (
-                    <span className="absolute -top-1 -right-1 w-4 h-4 bg-sunshine rounded-full border-2 border-white animate-pulse-glow z-10" />
-                  )}
-                  <button
-                    onClick={() => handleCategoryClick(category)}
-                    className={`cursor-pointer group relative flex items-center gap-2 sm:gap-2.5 px-4 sm:px-6 py-3 sm:py-3.5 rounded-2xl text-xs sm:text-sm font-bold uppercase tracking-wide transition-all duration-300 ease-out ${activeCategory === category
-                      ? "bg-tomato text-white sm:shadow-xl sm:shadow-tomato/30 scale-105"
-                      : "bg-white text-coffee hover:bg-soft-beige sm:hover:shadow-lg hover:scale-102 border-2 border-sand hover:border-tomato/30"
-                      }`}
+      {/* Sticky Category Navbar + View Toggle - top-16 accounts for main navbar height */}
+      {/* Breakpoints: 
+          - < 640px (mobile): Stacked, centered, emoji/icons only
+          - 640px-1024px (tablet): Single row, emoji/icons only  
+          - > 1024px (desktop): Single row, full text + emoji/icons
+      */}
+      <div className="sticky top-16 z-20 bg-cream/95 backdrop-blur-sm py-2 sm:py-3 lg:py-4 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05)]">
+        <div className="container mx-auto px-4">
+          {/* Stacked on mobile, row on sm+ */}
+          <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-3 sm:gap-4">
+            {/* Category Pills - Horizontal scroll, centered on mobile */}
+            <div 
+              ref={scrollContainerRef}
+              className="w-full sm:flex-1 overflow-x-auto sm:overflow-visible scrollbar-hide"
+            >
+              <div className="flex gap-2 sm:gap-2 lg:gap-3 min-w-max sm:min-w-0 justify-center sm:justify-start lg:justify-start sm:flex-wrap">
+                {categories.map((category) => (
+                  <div 
+                    key={category} 
+                    className="relative"
+                    ref={(el) => {
+                      if (el) categoryRefs.current.set(category, el);
+                    }}
                   >
-                    {/* Category emoji */}
-                    <span className={`transition-transform duration-300 ${activeCategory === category ? "scale-110" : "group-hover:scale-125"}`}>
-                      {getCategoryEmoji(category)}
-                    </span>
-                    <span>{t(`categories.${category}`)}</span>
-                  </button>
-                </div>
-              ))}
+                    {/* Active indicator dot - hidden on mobile/tablet for cleaner look */}
+                    {activeCategory === category && (
+                      <span className="hidden lg:block absolute -top-1 -right-1 w-4 h-4 bg-sunshine rounded-full border-2 border-white animate-pulse-glow z-10" />
+                    )}
+                    <button
+                      onClick={() => handleCategoryClick(category)}
+                      className={`cursor-pointer group relative flex items-center gap-1.5 lg:gap-2.5 px-3 lg:px-5 py-2 lg:py-3 rounded-xl lg:rounded-2xl text-xs lg:text-sm font-bold uppercase tracking-wide transition-all duration-300 ease-out ${activeCategory === category
+                        ? "bg-tomato text-white lg:shadow-xl lg:shadow-tomato/30"
+                        : "bg-white text-coffee hover:bg-soft-beige lg:hover:shadow-lg border border-sand lg:border-2 hover:border-tomato/30"
+                        }`}
+                    >
+                      {/* Category emoji */}
+                      <span className={`text-base lg:text-lg transition-transform duration-300 ${activeCategory === category ? "scale-110" : "group-hover:scale-125"}`}>
+                        {getCategoryEmoji(category)}
+                      </span>
+                      {/* Hide text until lg breakpoint */}
+                      <span className="hidden lg:inline">{t(`categories.${category}`)}</span>
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* View Mode Toggle - Icons only until lg, centered on mobile */}
+            <div className="flex-shrink-0 flex gap-1 lg:gap-2 bg-white rounded-xl lg:rounded-2xl p-1 lg:p-1.5 shadow-md lg:shadow-lg border border-sand lg:border-2">
+              <button
+                onClick={() => setViewMode("picture")}
+                className={`cursor-pointer flex items-center gap-2 px-3 lg:px-5 py-2 lg:py-2.5 rounded-lg lg:rounded-xl text-sm font-semibold transition-all duration-300 ${viewMode === "picture"
+                  ? "bg-tomato text-white shadow-md"
+                  : "text-latte hover:text-espresso hover:bg-soft-beige"
+                  }`}
+                title={t("viewMode.picture")}
+              >
+                <LayoutGrid className="h-4 w-4" />
+                <span className="hidden lg:inline">{t("viewMode.picture")}</span>
+              </button>
+              <button
+                onClick={() => setViewMode("minimalist")}
+                className={`cursor-pointer flex items-center gap-2 px-3 lg:px-5 py-2 lg:py-2.5 rounded-lg lg:rounded-xl text-sm font-semibold transition-all duration-300 ${viewMode === "minimalist"
+                  ? "bg-tomato text-white shadow-md"
+                  : "text-latte hover:text-espresso hover:bg-soft-beige"
+                  }`}
+                title={t("viewMode.minimalist")}
+              >
+                <List className="h-4 w-4" />
+                <span className="hidden lg:inline">{t("viewMode.minimalist")}</span>
+              </button>
             </div>
           </div>
-
-          {/* View Mode Toggle - Clean switch */}
-          <div className="flex gap-2 bg-white rounded-2xl p-1.5 shadow-lg border-2 border-sand">
-            <button
-              onClick={() => setViewMode("picture")}
-              className={`cursor-pointer flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 ${viewMode === "picture"
-                ? "bg-tomato text-white shadow-md"
-                : "text-latte hover:text-espresso hover:bg-soft-beige"
-                }`}
-              title={t("viewMode.picture")}
-            >
-              <LayoutGrid className="h-4 w-4" />
-              <span className="hidden sm:inline">{t("viewMode.picture")}</span>
-            </button>
-            <button
-              onClick={() => setViewMode("minimalist")}
-              className={`cursor-pointer flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 ${viewMode === "minimalist"
-                ? "bg-tomato text-white shadow-md"
-                : "text-latte hover:text-espresso hover:bg-soft-beige"
-                }`}
-              title={t("viewMode.minimalist")}
-            >
-              <List className="h-4 w-4" />
-              <span className="hidden sm:inline">{t("viewMode.minimalist")}</span>
-            </button>
-          </div>
         </div>
+      </div>
 
-        {/* Picture Mode - Fun Card Grid */}
+      {/* Menu Content */}
+      <div className="container mx-auto px-4 relative z-10 py-8 sm:py-12 pb-20 lg:pb-28">
         {viewMode === "picture" && (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {filteredItems.map((item, index) => (
