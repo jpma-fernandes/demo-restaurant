@@ -66,7 +66,7 @@ export function ConfigPanel({ open, onOpenChange }: ConfigPanelProps) {
     <Sheet open={open} onOpenChange={onOpenChange}>
       <SheetContent
         side="right"
-        className="w-[350px] sm:w-[400px] bg-steel border-gunmetal overflow-y-auto"
+        className="w-full max-w-[350px] sm:max-w-[400px] bg-steel border-gunmetal overflow-y-auto"
       >
         <SheetHeader className="mb-6">
           <SheetTitle className="text-smoke text-xl">{t("title")}</SheetTitle>

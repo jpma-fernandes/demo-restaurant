@@ -380,3 +380,13 @@ html {
   background-image: radial-gradient(var(--sand) 1px, transparent 1px);
   background-size: 20px 20px;
 }
+
+/* Hide scrollbar but keep functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

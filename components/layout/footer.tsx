@@ -127,7 +127,7 @@ export function Footer() {
               {t("newsletter.title")}
             </h3>
             <p className="text-iron text-sm">{t("newsletter.description")}</p>
-            <form className="flex gap-2" onSubmit={(e) => e.preventDefault()}>
+            <form className="flex flex-col sm:flex-row gap-2" onSubmit={(e) => e.preventDefault()}>
               <Input
                 type="email"
                 placeholder={t("newsletter.placeholder")}
@@ -135,7 +135,7 @@ export function Footer() {
               />
               <Button
                 type="submit"
-                className="bg-ember hover:bg-rust text-charcoal font-semibold"
+                className="bg-ember hover:bg-rust text-charcoal font-semibold w-full sm:w-auto"
               >
                 {t("newsletter.submit")}
               </Button>

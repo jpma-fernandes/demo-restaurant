@@ -175,23 +175,23 @@ export function ReservationsSection() {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header - Clean */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-3 bg-white/80 backdrop-blur-sm px-5 py-2 rounded-full shadow-md mb-6">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-14">
+          <div className="inline-flex items-center gap-3 bg-white/80 backdrop-blur-sm px-5 py-2 rounded-full shadow-md mb-4 sm:mb-6">
             <Utensils className="h-4 w-4 text-tomato" />
             <span className="text-tomato text-sm uppercase tracking-[0.2em] font-bold">
               {t("subtitle")}
             </span>
           </div>
-          <h2 className="text-5xl md:text-6xl font-black text-espresso mb-4 leading-tight">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-espresso mb-3 sm:mb-4 leading-tight">
             {t("title").split(" ").slice(0, -1).join(" ")}{" "}
             <span className="text-tomato">{t("title").split(" ").slice(-1)}</span>
           </h2>
-          <p className="text-latte text-lg max-w-xl mx-auto">{t("description")}</p>
+          <p className="text-latte text-base sm:text-lg max-w-xl mx-auto">{t("description")}</p>
         </div>
 
         <div className="max-w-4xl mx-auto">
           {/* Progress Bar - Clean with icons */}
-          <div className="mb-12">
+          <div className="mb-8 sm:mb-12">
             <div className="relative flex justify-between">
               <div className="absolute top-5 left-0 w-full px-[1.375rem] z-0">
                 <div className="relative h-1 w-full bg-sand rounded-full">
@@ -207,23 +207,23 @@ export function ReservationsSection() {
                 const isActive = index <= currentStep;
 
                 return (
-                  <div key={step} className="relative z-10 flex flex-col items-center gap-3">
+                  <div key={step} className="relative z-10 flex flex-col items-center gap-2 sm:gap-3">
                     <div
                       className={cn(
-                        "w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-300",
+                        "w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center transition-all duration-300",
                         isActive
                           ? "bg-gradient-to-br from-tomato to-tomato-light text-white shadow-lg shadow-tomato/25"
                           : "bg-white border-2 border-sand text-latte"
                       )}
                     >
-                      {index === 0 && <CalendarIcon className="h-5 w-5" />}
-                      {index === 1 && <Users className="h-5 w-5" />}
-                      {index === 2 && <Clock className="h-5 w-5" />}
-                      {index === 3 && <CheckCircle className="h-5 w-5" />}
+                      {index === 0 && <CalendarIcon className="h-4 w-4 sm:h-5 sm:w-5" />}
+                      {index === 1 && <Users className="h-4 w-4 sm:h-5 sm:w-5" />}
+                      {index === 2 && <Clock className="h-4 w-4 sm:h-5 sm:w-5" />}
+                      {index === 3 && <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5" />}
                     </div>
                     <span
                       className={cn(
-                        "text-xs uppercase tracking-wider font-bold transition-colors duration-300 hidden sm:block",
+                        "text-[10px] sm:text-xs uppercase tracking-wider font-bold transition-colors duration-300 hidden xs:block sm:block",
                         isActive ? "text-tomato" : "text-cappuccino"
                       )}
                     >
@@ -236,11 +236,11 @@ export function ReservationsSection() {
           </div>
 
           {/* Main Card - Clean white */}
-          <Card className="bg-white border-2 border-sand shadow-xl rounded-3xl relative overflow-hidden min-h-[500px]">
+          <Card className="bg-white border-2 border-sand shadow-xl rounded-2xl sm:rounded-3xl relative overflow-hidden min-h-[450px] sm:min-h-[500px]">
             <CardContent className="p-0">
               {/* Header with Back Button */}
               {currentStep > 0 && (
-                <div className="absolute top-6 left-6 z-20">
+                <div className="absolute top-4 left-4 sm:top-6 sm:left-6 z-20">
                   <Button
                     onClick={goBack}
                     variant="ghost"
@@ -248,12 +248,12 @@ export function ReservationsSection() {
                     className="cursor-pointer text-latte hover:text-tomato hover:bg-soft-beige -ml-2 rounded-xl"
                   >
                     <ChevronLeft className="h-4 w-4 mr-1" />
-                    {t("back")}
+                    <span className="hidden sm:inline">{t("back")}</span>
                   </Button>
                 </div>
               )}
 
-              {/* Selection Summary (Top Right) */}
+              {/* Selection Summary (Top Right) - Hidden on mobile */}
               <div className="absolute top-6 right-6 z-20 hidden md:flex items-center gap-3 text-sm font-medium">
                 {formData.date && (
                   <div className="flex items-center gap-2 bg-soft-beige px-4 py-2 rounded-xl text-coffee">
@@ -276,15 +276,15 @@ export function ReservationsSection() {
               </div>
 
               {/* Step Content */}
-              <div className="p-8 md:p-12 pt-20">
+              <div className="p-4 sm:p-8 md:p-12 pt-16 sm:pt-20">
 
                 {/* Step 1: Date Selection */}
                 {currentStep === 0 && (
                   <div className="flex flex-col items-center animate-in fade-in slide-in-from-right-8 duration-500">
-                    <h3 className="text-2xl font-black text-espresso mb-2">
+                    <h3 className="text-xl sm:text-2xl font-black text-espresso mb-2">
                       {t("date")}
                     </h3>
-                    <p className="text-latte mb-8">{locale === "pt" ? "Escolha o dia perfeito para a sua visita" : "Choose the perfect day for your visit"}</p>
+                    <p className="text-latte text-sm sm:text-base mb-6 sm:mb-8 text-center">{locale === "pt" ? "Escolha o dia perfeito para a sua visita" : "Choose the perfect day for your visit"}</p>
                     <Calendar
                       mode="single"
                       selected={formData.date}
@@ -295,7 +295,7 @@ export function ReservationsSection() {
                         return date < today;
                       }}
                       initialFocus
-                      className="rounded-2xl border-2 border-sand bg-white text-espresso shadow-lg p-4 [--cell-size:--spacing(11)] md:[--cell-size:--spacing(12)]"
+                      className="rounded-2xl border-2 border-sand bg-white text-espresso shadow-lg p-2 sm:p-4 [--cell-size:--spacing(10)] sm:[--cell-size:--spacing(11)] md:[--cell-size:--spacing(12)]"
                       classNames={{
                         selected: "!bg-tomato text-white hover:!bg-tomato-dark focus:!bg-tomato focus:text-white !rounded-full",
                         today: "!bg-transparent border !border-cappuccino text-espresso font-bold !rounded-full",
@@ -303,7 +303,7 @@ export function ReservationsSection() {
                         head_cell: "text-latte rounded-md w-[--cell-size] font-bold text-[0.8rem]",
                         cell: "h-[--cell-size] w-[--cell-size] text-center text-sm p-0 relative focus-within:relative focus-within:z-20 rounded-full",
                         nav_button: "border-2 border-sand hover:bg-tomato/10 hover:border-tomato hover:text-tomato transition-colors rounded-xl",
-                        caption: "flex justify-center pt-1 relative items-center text-tomato font-black tracking-wider uppercase",
+                        caption: "flex justify-center pt-1 relative items-center text-tomato font-black tracking-wider uppercase text-sm sm:text-base",
                       }}
                     />
                   </div>
@@ -311,27 +311,27 @@ export function ReservationsSection() {
 
                 {/* Step 2: Guest Selection */}
                 {currentStep === 1 && (
-                  <div className="flex flex-col items-center animate-in fade-in slide-in-from-right-8 duration-500 min-h-[400px]">
-                    <h3 className="text-2xl font-black text-espresso mb-2">
+                  <div className="flex flex-col items-center animate-in fade-in slide-in-from-right-8 duration-500 min-h-[350px] sm:min-h-[400px]">
+                    <h3 className="text-xl sm:text-2xl font-black text-espresso mb-2">
                       {t("guestSelection")}
                     </h3>
-                    <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 w-full max-w-2xl my-auto">
+                    <div className="grid grid-cols-3 sm:grid-cols-5 gap-3 sm:gap-4 w-full max-w-2xl my-auto">
                       {guestOptions.map((num) => (
                         <button
                           key={num}
                           onClick={() => handleGuestsSelect(num)}
                           className={cn(
-                            "cursor-pointer py-6 rounded-2xl border-2 transition-all duration-300 flex flex-col items-center gap-2 group",
+                            "cursor-pointer py-4 sm:py-6 rounded-xl sm:rounded-2xl border-2 transition-all duration-300 flex flex-col items-center gap-1 sm:gap-2 group",
                             formData.guests === num
                               ? "bg-gradient-to-br from-tomato to-tomato-light border-tomato text-white shadow-lg shadow-tomato/25"
                               : "bg-white border-sand text-coffee hover:border-tomato hover:shadow-md"
                           )}
                         >
                           <Users className={cn(
-                            "h-5 w-5 transition-colors",
+                            "h-4 w-4 sm:h-5 sm:w-5 transition-colors",
                             formData.guests === num ? "text-white" : "text-tomato"
                           )} />
-                          <span className="text-xl font-semibold">{num}</span>
+                          <span className="text-lg sm:text-xl font-semibold">{num}</span>
                         </button>
                       ))}
                     </div>
@@ -340,22 +340,22 @@ export function ReservationsSection() {
 
                 {/* Step 3: Time Selection */}
                 {currentStep === 2 && (
-                  <div className="flex flex-col items-center animate-in fade-in slide-in-from-right-8 duration-500 min-h-[400px]">
-                    <h3 className="text-2xl font-black text-espresso mb-2">
+                  <div className="flex flex-col items-center animate-in fade-in slide-in-from-right-8 duration-500 min-h-[350px] sm:min-h-[400px]">
+                    <h3 className="text-xl sm:text-2xl font-black text-espresso mb-2">
                       {t("timeSelection")}
                     </h3>
-                    <div className="w-full max-w-2xl space-y-8 mt-8">
+                    <div className="w-full max-w-2xl space-y-6 sm:space-y-8 mt-6 sm:mt-8">
                       {/* Lunch Section */}
                       <div>
-                        <div className="flex items-center gap-4 mb-4">
+                        <div className="flex items-center gap-2 sm:gap-4 mb-3 sm:mb-4">
                           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-sand to-transparent"></div>
-                          <span className="text-tomato font-bold uppercase tracking-wider text-sm flex items-center gap-2 bg-soft-beige px-3 py-1 rounded-full">
-                            <Sun className="h-4 w-4" />
+                          <span className="text-tomato font-bold uppercase tracking-wider text-xs sm:text-sm flex items-center gap-1.5 sm:gap-2 bg-soft-beige px-2 sm:px-3 py-1 rounded-full">
+                            <Sun className="h-3 w-3 sm:h-4 sm:w-4" />
                             {t("timeSlots.lunch")}
                           </span>
                           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-sand to-transparent"></div>
                         </div>
-                        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4">
+                        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2 sm:gap-4">
                           {timeSlots
                             .filter(time => parseInt(time.split(':')[0]) < 16)
                             .map((time) => (
@@ -363,7 +363,7 @@ export function ReservationsSection() {
                                 key={time}
                                 onClick={() => handleTimeSelect(time)}
                                 className={cn(
-                                  "cursor-pointer py-4 rounded-xl border-2 text-sm font-bold transition-all duration-300",
+                                  "cursor-pointer py-3 sm:py-4 rounded-lg sm:rounded-xl border-2 text-xs sm:text-sm font-bold transition-all duration-300",
                                   formData.time === time
                                     ? "bg-gradient-to-br from-tomato to-tomato-light border-tomato text-white shadow-lg shadow-tomato/25"
                                     : "bg-white border-sand text-coffee hover:border-tomato hover:shadow-md"
@@ -375,15 +375,15 @@ export function ReservationsSection() {
                         </div>
                       </div>
                       <div>
-                        <div className="flex items-center gap-4 mb-4">
+                        <div className="flex items-center gap-2 sm:gap-4 mb-3 sm:mb-4">
                           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-sand to-transparent"></div>
-                          <span className="text-tomato font-bold uppercase tracking-wider text-sm flex items-center gap-2 bg-soft-beige px-3 py-1 rounded-full">
-                            <Moon className="h-4 w-4" />
+                          <span className="text-tomato font-bold uppercase tracking-wider text-xs sm:text-sm flex items-center gap-1.5 sm:gap-2 bg-soft-beige px-2 sm:px-3 py-1 rounded-full">
+                            <Moon className="h-3 w-3 sm:h-4 sm:w-4" />
                             {t("timeSlots.dinner")}
                           </span>
                           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-sand to-transparent"></div>
                         </div>
-                        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4">
+                        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2 sm:gap-4">
                           {timeSlots
                             .filter(time => parseInt(time.split(':')[0]) > 16)
                             .map((time) => (
@@ -391,7 +391,7 @@ export function ReservationsSection() {
                                 key={time}
                                 onClick={() => handleTimeSelect(time)}
                                 className={cn(
-                                  "cursor-pointer py-4 rounded-xl border-2 text-sm font-bold transition-all duration-300",
+                                  "cursor-pointer py-3 sm:py-4 rounded-lg sm:rounded-xl border-2 text-xs sm:text-sm font-bold transition-all duration-300",
                                   formData.time === time
                                     ? "bg-gradient-to-br from-tomato to-tomato-light border-tomato text-white shadow-lg shadow-tomato/25"
                                     : "bg-white border-sand text-coffee hover:border-tomato hover:shadow-md"
@@ -409,35 +409,36 @@ export function ReservationsSection() {
                 {/* Step 4: Details Form */}
                 {currentStep === 3 && (
                   <div className="animate-in fade-in slide-in-from-right-8 duration-500">
-                    <div className="text-center mb-8">
-                      <h3 className="text-2xl font-black text-espresso mb-3">
+                    <div className="text-center mb-6 sm:mb-8">
+                      <h3 className="text-xl sm:text-2xl font-black text-espresso mb-3">
                         {t("detailsSelection")}
                       </h3>
-                      <div className="inline-flex items-center gap-4 bg-soft-beige px-5 py-3 rounded-xl text-coffee font-medium">
-                        <div className="flex items-center gap-2">
-                          <CalendarIcon className="h-4 w-4 text-tomato" />
-                          {format(formData.date!, "P", { locale: dateLocale })}
+                      {/* Mobile-friendly summary - stacked on small screens */}
+                      <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-4 bg-soft-beige px-3 sm:px-5 py-2 sm:py-3 rounded-xl text-coffee font-medium text-sm">
+                        <div className="flex items-center gap-1.5 sm:gap-2">
+                          <CalendarIcon className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-tomato" />
+                          <span className="text-xs sm:text-sm">{format(formData.date!, "P", { locale: dateLocale })}</span>
                         </div>
-                        <div className="w-px h-5 bg-sand" />
-                        <div className="flex items-center gap-2">
-                          <Clock className="h-4 w-4 text-tomato" />
-                          {formData.time}
+                        <div className="hidden sm:block w-px h-5 bg-sand" />
+                        <div className="flex items-center gap-1.5 sm:gap-2">
+                          <Clock className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-tomato" />
+                          <span className="text-xs sm:text-sm">{formData.time}</span>
                         </div>
-                        <div className="w-px h-5 bg-sand" />
-                        <div className="flex items-center gap-2">
-                          <Users className="h-4 w-4 text-tomato" />
-                          {formData.guests} {t("guestsSuffix")}
+                        <div className="hidden sm:block w-px h-5 bg-sand" />
+                        <div className="flex items-center gap-1.5 sm:gap-2">
+                          <Users className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-tomato" />
+                          <span className="text-xs sm:text-sm">{formData.guests} {t("guestsSuffix")}</span>
                         </div>
                       </div>
                     </div>
 
-                    <form onSubmit={handleSubmit} className="space-y-6 max-w-2xl mx-auto">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6 max-w-2xl mx-auto">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                         {/* Name */}
                         <div className="space-y-2">
-                          <Label className="text-espresso font-bold flex items-center gap-2">
-                            <div className="w-8 h-8 rounded-lg bg-tomato/10 flex items-center justify-center">
-                              <User className="h-4 w-4 text-tomato" />
+                          <Label className="text-espresso font-bold flex items-center gap-2 text-sm sm:text-base">
+                            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-tomato/10 flex items-center justify-center">
+                              <User className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-tomato" />
                             </div>
                             {t("name")}
                           </Label>
@@ -446,7 +447,7 @@ export function ReservationsSection() {
                             onChange={(e) =>
                               setFormData((prev) => ({ ...prev, name: e.target.value }))
                             }
-                            className="bg-soft-beige border-2 border-sand text-espresso placeholder:text-cappuccino focus:border-tomato focus:ring-tomato/20 h-12 rounded-xl"
+                            className="bg-soft-beige border-2 border-sand text-espresso placeholder:text-cappuccino focus:border-tomato focus:ring-tomato/20 h-11 sm:h-12 rounded-xl text-base"
                             placeholder={t("name")}
                           />
                           {errors.name && (
@@ -456,9 +457,9 @@ export function ReservationsSection() {
 
                         {/* Phone */}
                         <div className="space-y-2">
-                          <Label className="text-espresso font-bold flex items-center gap-2">
-                            <div className="w-8 h-8 rounded-lg bg-tomato/10 flex items-center justify-center">
-                              <Phone className="h-4 w-4 text-tomato" />
+                          <Label className="text-espresso font-bold flex items-center gap-2 text-sm sm:text-base">
+                            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-tomato/10 flex items-center justify-center">
+                              <Phone className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-tomato" />
                             </div>
                             {t("phone")}
                           </Label>
@@ -468,7 +469,7 @@ export function ReservationsSection() {
                             onChange={(e) =>
                               setFormData((prev) => ({ ...prev, phone: e.target.value }))
                             }
-                            className="bg-soft-beige border-2 border-sand text-espresso placeholder:text-cappuccino focus:border-tomato focus:ring-tomato/20 h-12 rounded-xl"
+                            className="bg-soft-beige border-2 border-sand text-espresso placeholder:text-cappuccino focus:border-tomato focus:ring-tomato/20 h-11 sm:h-12 rounded-xl text-base"
                             placeholder="+351 ..."
                           />
                           {errors.phone && (
@@ -479,9 +480,9 @@ export function ReservationsSection() {
 
                       {/* Email (Optional) */}
                       <div className="space-y-2">
-                        <Label className="text-espresso font-bold flex items-center gap-2">
-                          <div className="w-8 h-8 rounded-lg bg-mint/10 flex items-center justify-center">
-                            <Mail className="h-4 w-4 text-mint" />
+                        <Label className="text-espresso font-bold flex items-center gap-2 text-sm sm:text-base">
+                          <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-mint/10 flex items-center justify-center">
+                            <Mail className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-mint" />
                           </div>
                           {t("email")} <span className="text-cappuccino text-xs font-normal">({locale === "pt" ? "opcional" : "optional"})</span>
                         </Label>
@@ -491,7 +492,7 @@ export function ReservationsSection() {
                           onChange={(e) =>
                             setFormData((prev) => ({ ...prev, email: e.target.value }))
                           }
-                          className="bg-soft-beige border-2 border-sand text-espresso placeholder:text-cappuccino focus:border-mint focus:ring-mint/20 h-12 rounded-xl"
+                          className="bg-soft-beige border-2 border-sand text-espresso placeholder:text-cappuccino focus:border-mint focus:ring-mint/20 h-11 sm:h-12 rounded-xl text-base"
                           placeholder={t("email")}
                         />
                         {errors.email && (
@@ -501,9 +502,9 @@ export function ReservationsSection() {
 
                       {/* Special Requests */}
                       <div className="space-y-2">
-                        <Label className="text-espresso font-bold flex items-center gap-2">
-                          <div className="w-8 h-8 rounded-lg bg-sunshine/20 flex items-center justify-center">
-                            <MessageSquare className="h-4 w-4 text-mustard" />
+                        <Label className="text-espresso font-bold flex items-center gap-2 text-sm sm:text-base">
+                          <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-sunshine/20 flex items-center justify-center">
+                            <MessageSquare className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-mustard" />
                           </div>
                           {t("specialRequests")}
                         </Label>
@@ -515,16 +516,16 @@ export function ReservationsSection() {
                               specialRequests: e.target.value,
                             }))
                           }
-                          className="bg-soft-beige border-2 border-sand text-espresso placeholder:text-cappuccino focus:border-sunshine focus:ring-sunshine/20 min-h-[100px] rounded-xl"
+                          className="bg-soft-beige border-2 border-sand text-espresso placeholder:text-cappuccino focus:border-sunshine focus:ring-sunshine/20 min-h-[80px] sm:min-h-[100px] rounded-xl text-base"
                           placeholder={t("specialRequestsPlaceholder")}
                         />
                       </div>
 
-                      <div className="pt-4">
+                      <div className="pt-2 sm:pt-4">
                         <Button
                           type="submit"
                           disabled={isSubmitting}
-                          className="w-full bg-gradient-to-r from-tomato to-tomato-light hover:from-tomato-dark hover:to-tomato text-white font-black text-lg py-7 uppercase tracking-wide transition-all duration-300 shadow-xl shadow-tomato/25 rounded-2xl"
+                          className="w-full bg-gradient-to-r from-tomato to-tomato-light hover:from-tomato-dark hover:to-tomato text-white font-black text-base sm:text-lg py-5 sm:py-7 uppercase tracking-wide transition-all duration-300 shadow-xl shadow-tomato/25 rounded-xl sm:rounded-2xl"
                         >
                           {isSubmitting ? (
                             <span className="flex items-center gap-3">

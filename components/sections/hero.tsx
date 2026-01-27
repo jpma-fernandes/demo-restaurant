@@ -54,17 +54,17 @@ export function HeroSection() {
           </div>
 
           {/* Main Title */}
-          <h1 className="text-[130px] md:text-[160px] lg:text-[200px] font-fascinate text-smoke tracking-tight">
+          <h1 className="text-[60px] sm:text-[90px] md:text-[130px] lg:text-[200px] font-fascinate text-smoke tracking-tight leading-none">
             Forja
           </h1>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-6 sm:pt-8">
             <Button
               size="lg"
               variant="outline"
               onClick={scrollToMenu}
-              className="text-smoke hover:bg-smoke hover:text-flame font-bold text-lg px-8 py-6 uppercase tracking-wide transition-all duration-300"
+              className="text-smoke hover:bg-smoke hover:text-flame font-bold text-base sm:text-lg px-6 py-4 sm:px-8 sm:py-6 uppercase tracking-wide transition-all duration-300 w-full sm:w-auto"
             >
               {t("cta")}
             </Button>
@@ -72,7 +72,7 @@ export function HeroSection() {
               size="lg"
               variant="outline"
               onClick={scrollToReservations}
-              className=" text-smoke hover:bg-smoke hover:text-flame font-bold text-lg px-8 py-6 uppercase tracking-wide transition-all duration-300"
+              className=" text-smoke hover:bg-smoke hover:text-flame font-bold text-base sm:text-lg px-6 py-4 sm:px-8 sm:py-6 uppercase tracking-wide transition-all duration-300 w-full sm:w-auto"
             >
               {t("ctaSecondary")}
             </Button>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Card, CardContent } from "@/components/ui/card";
@@ -61,6 +61,32 @@ export function MenuSection() {
   const t = useTranslations("menu");
   const [activeCategory, setActiveCategory] = useState<MenuCategory>("burgers");
   const [viewMode, setViewMode] = useState<"picture" | "minimalist">("picture");
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const categoryRefs = useRef<Map<MenuCategory, HTMLDivElement>>(new Map());
+
+  // Scroll selected category to center on mobile
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    const activeItem = categoryRefs.current.get(activeCategory);
+    
+    if (container && activeItem) {
+      const containerWidth = container.offsetWidth;
+      const itemLeft = activeItem.offsetLeft;
+      const itemWidth = activeItem.offsetWidth;
+      
+      // Calculate scroll position to center the item
+      const scrollTo = itemLeft - (containerWidth / 2) + (itemWidth / 2);
+      
+      container.scrollTo({
+        left: scrollTo,
+        behavior: 'smooth'
+      });
+    }
+  }, [activeCategory]);
+
+  const handleCategoryClick = (category: MenuCategory) => {
+    setActiveCategory(category);
+  };
 
   const filteredItems = menuItems.filter(
     (item) => item.category === activeCategory
@@ -183,30 +209,41 @@ export function MenuSection() {
         </div>
 
         {/* Category Navbar + View Toggle */}
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-6 mb-12">
-          {/* Category Pills - Fun rounded buttons */}
-          <div className="flex flex-wrap justify-center gap-3">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`cursor-pointer group relative flex items-center gap-2.5 px-6 py-3.5 rounded-2xl text-sm font-bold uppercase tracking-wide transition-all duration-400 ease-out ${activeCategory === category
-                  ? "bg-tomato text-white shadow-xl shadow-tomato/30 scale-105"
-                  : "bg-white text-coffee hover:bg-soft-beige hover:shadow-lg hover:scale-102 border-2 border-sand hover:border-tomato/30"
-                  }`}
-              >
-                {/* Category emoji on hover */}
-                <span className={`transition-transform duration-300 ${activeCategory === category ? "scale-110" : "group-hover:scale-125"}`}>
-                  {getCategoryEmoji(category)}
-                </span>
-                <span>{t(`categories.${category}`)}</span>
-
-                {/* Active indicator dot */}
-                {activeCategory === category && (
-                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-sunshine rounded-full border-2 border-white animate-pulse-glow" />
-                )}
-              </button>
-            ))}
+        <div className="flex flex-col lg:flex-row items-center lg:justify-between gap-4 sm:gap-6 mb-8 sm:mb-12">
+          {/* Category Pills - Horizontal scroll on mobile, left-aligned on desktop */}
+          <div 
+            ref={scrollContainerRef}
+            className="w-full sm:w-auto overflow-x-auto sm:overflow-visible py-3 scrollbar-hide"
+          >
+            <div className="flex gap-2 sm:gap-3 min-w-max sm:min-w-0 px-[calc(50%-4rem)] sm:px-1 sm:justify-center lg:justify-start sm:flex-wrap">
+              {categories.map((category) => (
+                <div 
+                  key={category} 
+                  className="relative"
+                  ref={(el) => {
+                    if (el) categoryRefs.current.set(category, el);
+                  }}
+                >
+                  {/* Active indicator dot - positioned outside button to avoid clipping */}
+                  {activeCategory === category && (
+                    <span className="absolute -top-1 -right-1 w-4 h-4 bg-sunshine rounded-full border-2 border-white animate-pulse-glow z-10" />
+                  )}
+                  <button
+                    onClick={() => handleCategoryClick(category)}
+                    className={`cursor-pointer group relative flex items-center gap-2 sm:gap-2.5 px-4 sm:px-6 py-3 sm:py-3.5 rounded-2xl text-xs sm:text-sm font-bold uppercase tracking-wide transition-all duration-300 ease-out ${activeCategory === category
+                      ? "bg-tomato text-white sm:shadow-xl sm:shadow-tomato/30 scale-105"
+                      : "bg-white text-coffee hover:bg-soft-beige sm:hover:shadow-lg hover:scale-102 border-2 border-sand hover:border-tomato/30"
+                      }`}
+                  >
+                    {/* Category emoji */}
+                    <span className={`transition-transform duration-300 ${activeCategory === category ? "scale-110" : "group-hover:scale-125"}`}>
+                      {getCategoryEmoji(category)}
+                    </span>
+                    <span>{t(`categories.${category}`)}</span>
+                  </button>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* View Mode Toggle - Clean switch */}
@@ -238,7 +275,7 @@ export function MenuSection() {
 
         {/* Picture Mode - Fun Card Grid */}
         {viewMode === "picture" && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {filteredItems.map((item, index) => (
               <Card
                 key={item.id}
@@ -325,12 +362,12 @@ export function MenuSection() {
         {/* Minimalist Mode - Clean List */}
         {viewMode === "minimalist" && (
           <div className="max-w-4xl mx-auto">
-            <div className="bg-white border-2 border-sand rounded-3xl p-8 sm:p-12 shadow-xl">
+            <div className="bg-white border-2 border-sand rounded-3xl p-4 sm:p-8 md:p-12 shadow-xl">
               {/* Category Title with emoji */}
-              <div className="flex items-center justify-center gap-4 mb-10">
+              <div className="flex items-center justify-center gap-3 sm:gap-4 mb-6 sm:mb-10">
                 <div className="h-px flex-1 bg-gradient-to-r from-transparent to-sand" />
-                <h3 className="flex items-center gap-3 text-tomato text-2xl font-black uppercase tracking-widest">
-                  <span className="text-3xl">{getCategoryEmoji(activeCategory)}</span>
+                <h3 className="flex items-center gap-2 sm:gap-3 text-tomato text-xl sm:text-2xl font-black uppercase tracking-widest">
+                  <span className="text-2xl sm:text-3xl">{getCategoryEmoji(activeCategory)}</span>
                   {t(`categories.${activeCategory}`)}
                 </h3>
                 <div className="h-px flex-1 bg-gradient-to-l from-transparent to-sand" />
@@ -340,16 +377,20 @@ export function MenuSection() {
               <div className="space-y-0">
                 {filteredItems.map((item, index) => (
                   <div key={item.id}>
-                    <div className="group flex items-start justify-between gap-6 py-6 hover:bg-soft-beige/50 px-4 -mx-4 rounded-2xl transition-colors duration-300">
+                    <div className="group flex flex-col sm:flex-row sm:items-start justify-between gap-2 sm:gap-6 py-4 sm:py-6 hover:bg-soft-beige/50 px-3 sm:px-4 -mx-3 sm:-mx-4 rounded-2xl transition-colors duration-300">
                       {/* Left: Name + Description */}
                       <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-3 mb-2">
-                          <h4 className="text-espresso font-bold text-lg group-hover:text-tomato transition-colors">
+                        <div className="flex items-center justify-between sm:justify-start gap-3 mb-2">
+                          <h4 className="text-espresso font-bold text-base sm:text-lg group-hover:text-tomato transition-colors">
                             {t(`items.${item.translationKey}.name`)}
                           </h4>
+                          {/* Price on mobile - inline with name */}
+                          <span className="text-tomato font-black text-lg sm:hidden">
+                            €{item.price.toFixed(2)}
+                          </span>
                           {/* Tags as subtle icons */}
                           {item.tags && item.tags.length > 0 && (
-                            <div className="flex gap-1.5">
+                            <div className="hidden sm:flex gap-1.5">
                               {item.tags.map((tag) => (
                                 <span
                                   key={tag}
@@ -381,11 +422,11 @@ export function MenuSection() {
                         )}
                       </div>
 
-                      {/* Dotted line connector */}
-                      <div className="flex-shrink-0 flex-1 max-w-32 border-b-2 border-dotted border-sand self-center mx-4" />
+                      {/* Dotted line connector - hidden on mobile */}
+                      <div className="hidden sm:block flex-shrink-0 flex-1 max-w-32 border-b-2 border-dotted border-sand self-center mx-4" />
 
-                      {/* Right: Price */}
-                      <div className="flex-shrink-0">
+                      {/* Right: Price - hidden on mobile (shown inline above) */}
+                      <div className="hidden sm:block flex-shrink-0">
                         <span className="text-tomato font-black text-xl">
                           €{item.price.toFixed(2)}
                         </span>
