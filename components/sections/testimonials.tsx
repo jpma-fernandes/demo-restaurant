@@ -12,10 +12,10 @@ export function TestimonialsSection() {
   const duplicatedItems = [...testimonialItems, ...testimonialItems];
 
   return (
-    <section className="relative bg-cream py-10 sm:py-14 lg:py-20 overflow-hidden" id="testimonials">
+    <section className="relative bg-soft-beige py-10 sm:py-14 lg:py-20 overflow-hidden shadow-[inset_0_8px_20px_-8px_rgba(45,41,38,0.08),inset_0_-8px_20px_-8px_rgba(45,41,38,0.08)]" id="testimonials">
       {/* Gradient overlays for fade effect */}
-      <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-cream to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-cream to-transparent z-10 pointer-events-none" />
+      <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-soft-beige to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-soft-beige to-transparent z-10 pointer-events-none" />
 
       {/* Scrolling container */}
       <div className="flex animate-scroll hover:pause-animation">

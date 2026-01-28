@@ -140,6 +140,34 @@
       "title": "A Nossa História",
       "content": "Fundado em 2019, o Forge Burger nasceu numa antiga fábrica reconvertida, mantendo a essência industrial que nos define. Cada elemento do nosso espaço conta uma história de transformação e dedicação."
     },
+    "timeline": {
+      "title": "A Nossa Jornada",
+      "2019": {
+        "year": "2019",
+        "title": "O Início",
+        "description": "Abrimos as portas numa antiga fábrica reconvertida no coração do Porto. Um sonho tornado realidade."
+      },
+      "2020": {
+        "year": "2020",
+        "title": "Resiliência",
+        "description": "Adaptámo-nos aos desafios com entregas ao domicílio e mantivemos a nossa comunidade unida."
+      },
+      "2022": {
+        "year": "2022",
+        "title": "Expansão",
+        "description": "Renovámos o espaço e triplicámos a nossa capacidade. Novos sabores, mesma paixão."
+      },
+      "2025": {
+        "year": "2025",
+        "title": "Reconhecimento",
+        "description": "Premiados como melhor hambúrguer artesanal do Norte de Portugal."
+      },
+      "2026": {
+        "year": "2026",
+        "title": "O Futuro",
+        "description": "Novos projetos a caminho. A forja continua a arder mais forte do que nunca."
+      }
+    },
     "mission": {
       "title": "A Nossa Missão",
       "content": "Elevar o hambúrguer artesanal a uma forma de arte gastronómica, utilizando ingredientes locais e sustentáveis, técnicas tradicionais e um ambiente que transporta os nossos clientes para uma experiência única."

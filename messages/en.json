@@ -140,6 +140,34 @@
       "title": "Our Story",
       "content": "Founded in 2019, Forge Burger was born in a converted old factory, maintaining the industrial essence that defines us. Every element of our space tells a story of transformation and dedication."
     },
+    "timeline": {
+      "title": "Our Journey",
+      "2019": {
+        "year": "2019",
+        "title": "The Beginning",
+        "description": "We opened our doors in a converted old factory in the heart of Porto. A dream come true."
+      },
+      "2020": {
+        "year": "2020",
+        "title": "Resilience",
+        "description": "We adapted to challenges with home delivery and kept our community united."
+      },
+      "2022": {
+        "year": "2022",
+        "title": "Expansion",
+        "description": "We renovated the space and tripled our capacity. New flavors, same passion."
+      },
+      "2025": {
+        "year": "2025",
+        "title": "Recognition",
+        "description": "Awarded best artisan burger in Northern Portugal."
+      },
+      "2026": {
+        "year": "2026",
+        "title": "The Future",
+        "description": "New projects on the way. The forge continues to burn stronger than ever."
+      }
+    },
     "mission": {
       "title": "Our Mission",
       "content": "To elevate the artisan burger to a form of culinary art, using local and sustainable ingredients, traditional techniques, and an atmosphere that transports our customers to a unique experience."
