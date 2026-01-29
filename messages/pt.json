@@ -221,25 +221,25 @@
     "items": {
       "review1": {
         "name": "João Silva",
-        "role": "Food Blogger",
+        "source": "Google",
         "content": "O melhor hambúrguer que já comi em Portugal. O ambiente industrial é fantástico e a carne derrete na boca. Voltarei com certeza!",
         "rating": 5
       },
       "review2": {
         "name": "Maria Santos",
-        "role": "Chef Profissional",
+        "source": "Tripadvisor",
         "content": "Como chef, sou muito exigente. O Forge Burger superou todas as minhas expectativas. Qualidade dos ingredientes impecável.",
         "rating": 5
       },
       "review3": {
         "name": "Pedro Costa",
-        "role": "Cliente Regular",
+        "source": "Google",
         "content": "Venho cá todas as semanas há 2 anos. O pessoal conhece-me pelo nome e o meu hambúrguer favorito está sempre perfeito.",
         "rating": 5
       },
       "review4": {
         "name": "Ana Ferreira",
-        "role": "Influencer Gastronómica",
+        "source": "Tripadvisor",
         "content": "O Trufa Negra é absolutamente divinal. A combinação de sabores é única e a apresentação é digna de estrelas Michelin.",
         "rating": 5
       }

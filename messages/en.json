@@ -221,25 +221,25 @@
     "items": {
       "review1": {
         "name": "John Smith",
-        "role": "Food Blogger",
+        "source": "Google",
         "content": "The best burger I've ever had in Portugal. The industrial atmosphere is fantastic and the meat melts in your mouth. I'll definitely be back!",
         "rating": 5
       },
       "review2": {
         "name": "Maria Santos",
-        "role": "Professional Chef",
+        "source": "Tripadvisor",
         "content": "As a chef, I'm very demanding. Forge Burger exceeded all my expectations. Impeccable ingredient quality.",
         "rating": 5
       },
       "review3": {
         "name": "Peter Costa",
-        "role": "Regular Customer",
+        "source": "Google",
         "content": "I've been coming here every week for 2 years. The staff knows me by name and my favorite burger is always perfect.",
         "rating": 5
       },
       "review4": {
         "name": "Anna Ferreira",
-        "role": "Food Influencer",
+        "source": "Tripadvisor",
         "content": "The Black Truffle is absolutely divine. The flavor combination is unique and the presentation is worthy of Michelin stars.",
         "rating": 5
       }

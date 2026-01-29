@@ -47,21 +47,13 @@ export function TestimonialsSection() {
               </p>
 
               {/* Author */}
-              <div className="flex items-center gap-3 sm:gap-4 pt-4 sm:pt-5 border-t border-sand">
-                <div className="relative w-11 h-11 sm:w-14 sm:h-14 rounded-full overflow-hidden ring-2 ring-tomato/20 ring-offset-2">
-                  <Image
-                    src={testimonial.avatar}
-                    alt={t(`items.${testimonial.translationKey}.name`)}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+              <div className="flex items-center gap-3 sm:gap-4">
                 <div>
                   <p className="text-espresso font-bold text-sm sm:text-base">
                     {t(`items.${testimonial.translationKey}.name`)}
                   </p>
                   <p className="text-latte text-xs sm:text-sm">
-                    {t(`items.${testimonial.translationKey}.role`)}
+                    {t(`items.${testimonial.translationKey}.source`)}
                   </p>
                 </div>
               </div>
